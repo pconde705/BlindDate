@@ -4,6 +4,7 @@ import {RECEIVE_SESSION_ERRORS, CLEAR_ERRORS} from '../actions/session_actions';
 const _nullErrors = [];
 
 export default (state = _nullErrors, action) => {
+  // console.log(action);
   Object.freeze(state);
 
   switch (action.type) {

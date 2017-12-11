@@ -21,12 +21,20 @@ class LoginScreen extends React.Component {
   }
 
   renderErrors() {
-    console.log(this.props.errors);
-    return (
-      <Text>
-        {this.props.errors.error}
-      </Text>
-    )
+    if (this.props.errors.length === 0) {
+      return (
+        <Text></Text>
+      )
+    } else {
+      console.log(this.props.errors);
+      return (
+        <Text>
+          {this.props.errors.map((error) => (
+            `${error}`
+          ))}
+        </Text>
+      )
+    }
   }
 
   render () {
