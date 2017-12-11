@@ -44,7 +44,7 @@ Our app was therefore designed with two simple ideas in mind:
    - [ ] Picture reveal
    
 #### Bonus Features
-   - [ ] Facial reognition
+   - [ ] Facial recognition
    - [ ] Delete conversations/connections
    - [ ] Edit pictures
    - [ ] Edit descriptions
