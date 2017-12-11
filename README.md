@@ -67,7 +67,11 @@ Our app was therefore designed with two simple ideas in mind:
 
 ## Wireframes
 
-insert images here...
+![](https://github.com/pconde705/BlindDate/blob/master/wireframes/user_auth.png)
+![](https://github.com/pconde705/BlindDate/blob/master/wireframes/potential_matches.png)
+![](https://github.com/pconde705/BlindDate/blob/master/wireframes/edit_profile.png)
+![](https://github.com/pconde705/BlindDate/blob/master/wireframes/matches.png)
+![](https://github.com/pconde705/BlindDate/blob/master/wireframes/chat.png)
  
 ## Group Members
 
