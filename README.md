@@ -22,16 +22,16 @@ being unfairly judged by an image before you learn anything about them.
 
 Our app was therefore designed with two simple ideas in mind:
 
-1. People are not shown any images of an individual unless they swipe no after reding their profile description
-2. Once two people connect images are not revealed unless some conversation has happened, and they both mutual agree to show each other pictures of themselves
+1. People are not shown any images of an individual unless they swipe no after reading the user's profile description
+2. Once two people connect, images are not revealed unless some conversation has happened, and both parties mutually agree to show each other pictures of themselves
 
 ## Features
 
-* Create profile of themselves
+* Create profile
 * Answer questions to flesh out profile
-* Swipe between profiles of people that match your preferences
-* Upon successful connection, you will be allowed to chat with your match
-* Pictures can be revealed if both of you consent to it
+* Swipe through profiles of people that match the user's preferences
+* Upon successful connection, the user will be allowed to chat with his/her match
+* Pictures can be revealed if both the user and his/her match consent to it
 
 ## MVP
 
@@ -56,8 +56,8 @@ Our app was therefore designed with two simple ideas in mind:
 ## Technical Challenges
 
 #### React Native in general
-+ React Native has its own rules when it comes to Redux implementation, and we would have to figure out what changes need to be made versus the ones that stay. 
-+ Folder structure is completely foreign and still somewhat undecided in the Native community, hence we will largely have to imporvise based on what we think is correct.
++ React Native has its own rules when it comes to Redux implementation, and we would have to figure out what changes need to be made and which aspects will remain unchanged. 
++ Folder structure is completely foreign and still somewhat undecided in the Native community, hence we will largely have to improvise based on what we think is correct.
 
 #### Styling
 + Unlike React in a rails web app, you cannot use CSS files to style your mobile app. This introduces a number of hurdles when it comes to correct structuring and already established style-terms now meaning something different.
@@ -99,7 +99,7 @@ insert images here...
   - start chat between matches functionality
 
 ### Day 5
-  - every element that still needs style must be added today
+  - style every element that still needs styling
   - finish chat functionality
-  - allow image sharing in chat
+  - implement image sharing in chat
   - seed database with remaining users
