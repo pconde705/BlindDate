@@ -13,7 +13,7 @@ const receiveCurrentUser = (currentUser) => ({
 
 export const login = user => dispatch => (
   axios.post(SESSION_URL, {user}).then(response => dispatch(receiveCurrentUser(response.data)))
-  .catch(error => console.log(error))
+  .catch(error => dispatch(receiveSessionErrors(error.response.data)))
 );
 
 const receiveSessionErrors = (errors) => ({
