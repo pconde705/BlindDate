@@ -21,16 +21,17 @@ class LoginScreen extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors.length === 0) {
-
-    } else {
-
-    }
+    console.log(this.props.errors);
+    return (
+      <Text>
+        {this.props.errors.error}
+      </Text>
+    )
   }
 
   render () {
-    console.log(this.props);
-    console.log(this.state);
+    // console.log(this.props);
+    // console.log(this.state);
     return (
       <View style={styles.container}>
         <Text>
@@ -53,7 +54,7 @@ class LoginScreen extends React.Component {
         <TouchableOpacity onPress={(e) => this.handleLogin(e)}>
           <Text>Log in</Text>
         </TouchableOpacity>
-
+        {this.renderErrors()}
       </View>
     )
   }

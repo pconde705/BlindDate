@@ -1,4 +1,4 @@
-import {SESSION_URL,USERS_URL} from '../api/api';
+import {SESSION_URL, USERS_URL} from '../api/api';
 import axios from 'axios';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
@@ -31,4 +31,7 @@ export const logout = () => dispatch => (
 
 export const signup = user => dispatch => (
   axios.post(USERS_URL, {user}).then(response => dispatch(receiveCurrentUser(response.data)))
+  .catch(error => dispatch(receiveSessionErrors(error.response.data)))
 );
+
+//console.log in the catch statement to see how errors are structured
