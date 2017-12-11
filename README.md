@@ -92,7 +92,7 @@ insert images here...
  - start rejection functionality
 
 ### Day 4
-  - Start showcase webpage for the app
+  - start showcase webpage for the app
   - finish swipe features
   - finished matching functionality
   - finish rejection functionality
