@@ -12,6 +12,12 @@ class ProfileScreen extends React.Component {
       inside_joke: "", intelligence_level: "", what_do_you_do: "", post_first_date: "" };
   }
 
+  handleProfile(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.editUser(user);
+  }
+
   render() {
     return (
       <View style={styles.container}>
