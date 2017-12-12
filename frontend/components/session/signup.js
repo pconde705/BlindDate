@@ -4,8 +4,8 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 
 class SignupScreen extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {email: "", password: ""};
+    super(props);
+    this.state = {username: "", email: "", password: ""};
 
   }
 
@@ -23,17 +23,19 @@ class SignupScreen extends React.Component {
     // console.log(this.props.errors);
     if (this.props.errors.length === 0) {
       return (
-        <Text></Text>
-      )
+        <Text style={styles.errors}></Text>
+      );
     } else {
       // console.log(this.props);
       return (
-        <Text>
-          {this.props.errors.map((error) => (
+        <Text style={styles.errors}>
+          {
+            this.props.errors.map((error) => (
             `${error}`
-          ))}
+            ))
+          }
         </Text>
-      )
+      );
     }
   }
 
@@ -41,53 +43,140 @@ class SignupScreen extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-      <Button title="Login" onPress={() => this.props.navigation.navigate('Login')} />
+
+      <View style={styles.header}>
+        <Text style={styles.title}>
+          BlindDate
+        </Text>
+
+        <Text style={styles.blurb}>
+          IT'S WHAT'S INSIDE THAT COUNTS
+        </Text>
+      </View>
+
       <View style={styles.inputContainer}>
-        <TextInput value={this.state.email} placeHolder='email'
-          onChangeText={email => this.setState({email})}
-          autoCapitalize='none' autoCorrect={false}
-          keyboardType='email-address' style={styles.inputField}
+        <TextInput
+          value={this.state.username}
+          placeholder='username'
+          onChangeText={username => this.setState({username})}
+          autoCapitalize='none'
+          autoCorrect={false}
+          keyboardType='default'
+          style={styles.inputField}
          />
-       </View>
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          value={this.state.email}
+          placeholder='email'
+          onChangeText={email => this.setState({email})}
+          autoCapitalize='none'
+          autoCorrect={false}
+          keyboardType='email-address'
+          style={styles.inputField}
+         />
+      </View>
+
        <View style={styles.inputContainer}>
-        <TextInput value={this.state.password} placeHolder="password"
+        <TextInput
+          value={this.state.password}
+          placeholder="password"
           onChangeText={ password => this.setState({password})}
-          autoCapitalize='none' autoCorrect={false}
-          secureTextEntry={true} style={styles.inputField}
+          autoCapitalize='none'
+          autoCorrect={false}
+          secureTextEntry={true}
+          style={styles.inputField}
         />
       </View>
+
       <TouchableOpacity onPress={(e) => this.handleSignup(e)}>
-        <Text>Sign up</Text>
+        <Text style={styles.signup}>SIGN UP</Text>
       </TouchableOpacity>
+
       {this.renderErrors()}
+      <Text style={styles.signinPrompt}>
+        Already have an account?
+      </Text>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
+        <Text style={styles.signinButton}>SIGN IN</Text>
+      </TouchableOpacity>
+
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
+  blurb: {
+    color: '#fff',
+    fontFamily: 'Futura',
+    fontSize: 14,
+    letterSpacing: 2
+  },
   container: {
+    alignItems: 'center',
+    // backgroundColor: '#25211e',
+    backgroundColor: 'black',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 20
   },
+  errors: {
+    alignItems: 'center',
+    color: 'red',
+    height: 20,
+    justifyContent: 'center',
+    marginBottom: 20
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 30
+  },
   inputField: {
+    backgroundColor: '#c4c4c4',
+    borderColor: 'gray',
+    borderRadius: 8,
+    borderWidth: 1,
     color: 'black',
     flex: 1,
-    width: 60,
-    height: 60,
+    fontFamily: 'Futura',
     fontSize: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: 'blue'
+    height: 60,
+    marginBottom: 3,
+    marginTop: 10,
+    paddingHorizontal: 10,
+    width: 60
   },
   inputContainer: {
-    borderBottomColor: '#9E7CE3',
-    borderBottomWidth: 1,
-    flex: 1,
     flexDirection: 'row',
-    marginBottom: 10
+  },
+  signinButton: {
+    color: 'red',
+    fontFamily: 'Futura',
+    fontWeight: '500',
+    marginTop: 20
+  },
+  signinPrompt: {
+    color: '#fff',
+    fontFamily: 'Futura',
+    fontSize: 14
+  },
+  signup: {
+    color: '#C1B497',
+    fontFamily: 'Futura',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: 'center'
+  },
+  title: {
+    fontFamily: 'Futura',
+    fontWeight: '100',
+    color: '#C1B497',
+    fontSize: 50
   }
-})
+});
 
 export default SignupScreen;

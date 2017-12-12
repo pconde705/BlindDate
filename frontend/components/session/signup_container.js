@@ -6,7 +6,8 @@ const mapStateToProps = state => {
   // console.log(state);
   return {
   errors: state.errors.session
-}};
+};
+};
 
 const mapDispatchToProps = dispatch => ({
   signup: (user) => dispatch(signup(user)),
@@ -16,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignupScreen)
+)(SignupScreen);
