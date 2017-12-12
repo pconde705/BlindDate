@@ -14,6 +14,14 @@ class User < ApplicationRecord
     through: :user_matchers,
     source: :match
 
+  has_many :user_potentials,
+    foreign_key: :potential_id,
+    class_name: :Potential
+
+  has_many :potentials,
+    through: :user_potentials,
+    source: :potential
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
