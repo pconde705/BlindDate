@@ -6,7 +6,7 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {email: "", password: ""};
+    this.state = {username: "", password: ""};
   }
 
   handleLogin(e) {
@@ -25,7 +25,7 @@ class LoginScreen extends React.Component {
         <Text></Text>
       )
     } else {
-      // console.log(this.props);
+      console.log(this.props);
       return (
         <Text>
           {this.props.errors.map((error) => (
@@ -50,10 +50,10 @@ class LoginScreen extends React.Component {
           BlindDate
         </Text>
         <View style={styles.inputContainer}>
-          <TextInput value={this.state.email} placeHolder='email'
-            onChangeText={email => this.setState({email})}
+          <TextInput value={this.state.username} placeHolder='username'
+            onChangeText={username => this.setState({username})}
             autoCapitalize='none' autoCorrect={false}
-            keyboardType='email-address' style={styles.inputField}
+            style={styles.inputField}
            />
          </View>
          <View style={styles.inputContainer}>
