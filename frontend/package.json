@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "link": "^0.1.5",
     "react": "16.0.0",
     "react-native": "0.51.0",
     "react-native-fetch-blob": "^0.10.8",
