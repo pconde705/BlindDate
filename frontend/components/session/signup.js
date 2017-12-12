@@ -9,7 +9,7 @@ class SignupScreen extends React.Component {
 
   }
 
-  componentWillMount(){
+  componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
   }
 
@@ -17,6 +17,7 @@ class SignupScreen extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.signup(user);
+    this.props.navigation.navigate('Profile', {user: user})
   }
 
   renderErrors() {
