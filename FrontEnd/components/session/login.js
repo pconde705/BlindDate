@@ -16,7 +16,7 @@ class LoginScreen extends React.Component {
   }
 
   componentWillMount() {
-    AppState.addEventListener('change', this.props.clearErrors)
+    AppState.addEventListener('change', this.props.clearErrors());
   }
 
   renderErrors() {
