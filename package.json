@@ -1,5 +1,8 @@
 {
   "name": "Backend",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+    "start": "node your-script.js"
+  }
 }
