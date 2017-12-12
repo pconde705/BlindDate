@@ -13,7 +13,6 @@
     "react-native": "0.51.0",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-image-picker": "^0.26.7",
-    "react-native-video": "^2.0.0",
     "react-navigation": "^1.0.0-beta.21",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
