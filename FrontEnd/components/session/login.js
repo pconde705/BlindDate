@@ -1,8 +1,7 @@
 // jshint esversion: 6
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
-        AppState } from 'react-native';
-// import { login } from '../../actions/session_actions';
+        AppState, Button } from 'react-native';
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class LoginScreen extends React.Component {
   }
 
   componentWillMount() {
-    AppState.addEventListener('change', this.props.clearErrors)
+    AppState.addEventListener('change', this.props.clearErrors());
   }
 
   renderErrors() {
@@ -26,7 +25,7 @@ class LoginScreen extends React.Component {
         <Text></Text>
       )
     } else {
-      console.log(this.props.errors);
+      // console.log(this.props);
       return (
         <Text>
           {this.props.errors.map((error) => (
@@ -37,11 +36,16 @@ class LoginScreen extends React.Component {
     }
   }
 
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+
   render () {
     // console.log(this.props);
     // console.log(this.state);
     return (
       <View style={styles.container}>
+        <Button title="Signup" onPress={() => this.props.navigation.navigate('Signup')} />
         <Text>
           BlindDate
         </Text>
