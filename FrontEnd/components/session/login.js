@@ -25,7 +25,7 @@ class LoginScreen extends React.Component {
         <Text></Text>
       )
     } else {
-      console.log(this.props.errors);
+      // console.log(this.props);
       return (
         <Text>
           {this.props.errors.map((error) => (
@@ -45,7 +45,7 @@ class LoginScreen extends React.Component {
     // console.log(this.state);
     return (
       <View style={styles.container}>
-        <Button title="Signup" onPress={() => this.props.navigation('Signup')} />
+        <Button title="Signup" onPress={() => this.props.navigation.navigate('Signup')} />
         <Text>
           BlindDate
         </Text>
