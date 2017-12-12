@@ -22,12 +22,12 @@ class LoginScreen extends React.Component {
   renderErrors() {
     if (this.props.errors.length === 0) {
       return (
-        <Text></Text>
+        <Text style={styles.errors}></Text>
       )
     } else {
       console.log(this.props);
       return (
-        <Text>
+        <Text style={styles.errors}>
           {this.props.errors.map((error) => (
             `${error}`
           ))}
@@ -45,55 +45,122 @@ class LoginScreen extends React.Component {
     // console.log(this.state);
     return (
       <View style={styles.container}>
-        <Button title="Signup" onPress={() => this.props.navigation.navigate('Signup')} />
-        <Text>
-          BlindDate
-        </Text>
+
+        <View style={styles.header}>
+          <Text style={styles.title}>
+            BlindDate
+          </Text>
+
+          <Text style={styles.blurb}>
+            IT'S WHAT'S INSIDE THAT COUNTS
+          </Text>
+        </View>
+
         <View style={styles.inputContainer}>
-          <TextInput value={this.state.username} placeHolder='username'
+          <TextInput
+            value={this.state.username}
+            placeholder='username'
             onChangeText={username => this.setState({username})}
-            autoCapitalize='none' autoCorrect={false}
+            autoCapitalize='none'
+            autoCorrect={false}
             style={styles.inputField}
            />
          </View>
          <View style={styles.inputContainer}>
-          <TextInput value={this.state.password} placeHolder="password"
+          <TextInput
+            value={this.state.password}
+            placeholder="password"
             onChangeText={ password => this.setState({password})}
-            autoCapitalize='none' autoCorrect={false}
-            secureTextEntry={true} style={styles.inputField}
+            autoCapitalize='none'
+            autoCorrect={false}
+            secureTextEntry={true}
+            style={styles.inputField}
           />
         </View>
         <TouchableOpacity onPress={(e) => this.handleLogin(e)}>
-          <Text>Log in</Text>
+          <Text style={styles.login}>LOG IN</Text>
         </TouchableOpacity>
         {this.renderErrors()}
+        <Text style={styles.signupPrompt}>
+          Don't have an account?
+        </Text>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('Signup')}>
+          <Text style={styles.signupButton}>SIGN UP</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  blurb: {
+    color: '#fff',
+    fontFamily: 'Futura',
+    fontSize: 14,
+    letterSpacing: 2
+  },
   container: {
+    alignItems: 'center',
+    // backgroundColor: '#25211e',
+    backgroundColor: 'black',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 20
   },
+  errors: {
+    alignItems: 'center',
+    color: 'red',
+    height: 20,
+    justifyContent: 'center',
+    marginBottom: 20
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 30
+  },
   inputField: {
+    backgroundColor: '#c4c4c4',
+    borderColor: 'gray',
+    borderRadius: 8,
+    borderWidth: 1,
     color: 'black',
     flex: 1,
-    width: 60,
-    height: 60,
+    fontFamily: 'Futura',
     fontSize: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: 'blue'
+    height: 60,
+    marginBottom: 3,
+    marginTop: 10,
+    paddingHorizontal: 10,
+    width: 60
   },
   inputContainer: {
-    borderBottomColor: '#9E7CE3',
-    borderBottomWidth: 1,
-    flex: 1,
     flexDirection: 'row',
-    marginBottom: 10
+  },
+  login: {
+    color: '#C1B497',
+    fontFamily: 'Futura',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: 'center'
+  },
+  signupButton: {
+    color: 'red',
+    fontFamily: 'Futura',
+    fontWeight: '500',
+    marginTop: 20
+  },
+  signupPrompt: {
+    color: '#fff',
+    fontFamily: 'Futura',
+    fontSize: 14
+  },
+  title: {
+    fontFamily: 'Futura',
+    fontWeight: '100',
+    color: '#C1B497',
+    fontSize: 50
   }
 });
 export default LoginScreen;
