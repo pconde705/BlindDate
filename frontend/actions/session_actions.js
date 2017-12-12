@@ -29,14 +29,15 @@ const receiveSessionErrors = (errors) => ({
 
 export const clearErrors = () => ({
   type: CLEAR_ERRORS
-})
+});
 
 export const logout = () => dispatch => (
   axios.delete(SESSION_URL, { params: {} })
 );
 
 export const signup = user => dispatch => (
-  axios.post(USERS_URL, {user}).then(response => dispatch(receiveCurrentUser(response.data)))
+  axios.post(USERS_URL, {user}).then(response =>
+    dispatch(receiveCurrentUser(response.data)))
   .catch(error => dispatch(receiveSessionErrors(error.response.data)))
 );
 
