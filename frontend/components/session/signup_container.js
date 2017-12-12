@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   signup: (user) => dispatch(signup(user)),
-  clearErrors: () => dispatch(clearErrors)
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

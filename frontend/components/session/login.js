@@ -6,7 +6,7 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", password: ""};
+    this.state = {email: "", password: ""};
   }
 
   handleLogin(e) {
@@ -25,7 +25,7 @@ class LoginScreen extends React.Component {
         <Text style={styles.errors}></Text>
       )
     } else {
-      console.log(this.props);
+      // console.log(this.props);
       return (
         <Text style={styles.errors}>
           {this.props.errors.map((error) => (
@@ -57,12 +57,12 @@ class LoginScreen extends React.Component {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput
-            value={this.state.username}
-            placeholder='username'
-            onChangeText={username => this.setState({username})}
-            autoCapitalize='none'
+          <TextInput value={this.state.email}
+            placeHolder='email'
+            onChangeText={email => this.setState({email})}
+            autoCapitalize='none' 
             autoCorrect={false}
+            keyboardType='email-address'
             style={styles.inputField}
            />
          </View>
