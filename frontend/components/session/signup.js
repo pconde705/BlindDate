@@ -62,7 +62,7 @@ class SignupScreen extends React.Component {
       <View style={styles.inputContainer}>
         <TextInput
           value={this.state.first_name}
-          placeholder='First Name'
+          placeholder='first name'
           onChangeText={first_name => this.setState({first_name})}
           autoCapitalize='none'
           autoCorrect={false}
@@ -74,7 +74,7 @@ class SignupScreen extends React.Component {
       <View style={styles.inputContainer}>
         <TextInput
           value={this.state.last_name}
-          placeholder='Last Name'
+          placeholder='last name'
           onChangeText={last_name => this.setState({last_name})}
           autoCapitalize='none'
           autoCorrect={false}
@@ -162,8 +162,7 @@ const styles = StyleSheet.create({
     height: 60,
     marginBottom: 3,
     marginTop: 10,
-    paddingHorizontal: 10,
-    width: 60
+    paddingHorizontal: 10
   },
   inputContainer: {
     flexDirection: 'row',
