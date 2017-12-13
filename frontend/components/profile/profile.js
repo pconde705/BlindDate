@@ -45,7 +45,7 @@ class ProfileScreen extends React.Component {
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.date_of_birth}
-              placeholder='When is your birthday?'
+              placeholder='When is your birthday? e.g. 1930-03-24'
               onChangeText={date_of_birth => this.setState({date_of_birth})}
               style={styles.requiredInputField}
               />

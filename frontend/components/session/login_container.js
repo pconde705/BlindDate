@@ -3,7 +3,7 @@ import {login, clearErrors} from '../../actions/session_actions';
 import LoginScreen from './login';
 
 const mapStateToProps = state => ({
-  // loggedIn: Boolean(state.session.currentUser),
+  loggedIn: Boolean(state.session.currentUser),
   errors: state.errors.session
 });
 

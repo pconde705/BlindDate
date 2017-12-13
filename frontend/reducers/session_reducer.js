@@ -2,11 +2,12 @@ import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
 
 
 const _nullUser = Object.freeze({
-  id: null, email: null, first_name: null
+  currentUser: null
 });
 
 const sessionReducer = (state = _nullUser, action) => {
   Object.freeze(state);
+  // console.log(action);
   let currentUser;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:

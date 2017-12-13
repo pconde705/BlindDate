@@ -2,9 +2,10 @@ import {connect} from 'react-redux';
 import {signup, clearErrors} from '../../actions/session_actions';
 import SignupScreen from './signup';
 
-const mapStateToProps = state => {
-  // console.log(state);
+const mapStateToProps = (state, ownProps) => {
+
   return {
+  loggedIn: Boolean(state.session.currentUser),
   errors: state.errors.session
   };
 };

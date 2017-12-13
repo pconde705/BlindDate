@@ -15,6 +15,16 @@ class LoginScreen extends React.Component {
     this.props.login(user);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // console.log(nextProps);
+    if (this.props.loggedIn !== nextProps.loggedIn) {
+      if (nextProps.loggedIn === true) {
+        const user = Object.assign({}, this.state);
+        this.props.navigation.navigate('Profile', {user: user});
+      }
+    }
+  }
+
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
   }
@@ -35,10 +45,6 @@ class LoginScreen extends React.Component {
       )
     }
   }
-
-  static navigationOptions = {
-    title: 'Welcome',
-  };
 
   render () {
     // console.log(this.props);
