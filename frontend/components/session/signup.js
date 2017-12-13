@@ -15,13 +15,10 @@ class SignupScreen extends React.Component {
   handleSignup(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    if (this.state.first_name !== "" &&
-        this.state.last_name !== "" &&
-        this.state.email !== "" &&
-        this.state.password !== "") {
-          this.props.signup(user);
-          // this.props.navigation.navigate('Profile', {user: user});
-        }
+
+    if (this.props.signup(user)) {
+      this.props.navigation.navigate('Profile', {user: user});
+    }
   }
 
   renderErrors() {
