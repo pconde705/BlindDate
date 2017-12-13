@@ -6,7 +6,7 @@ const mapStateToProps = state => {
   // console.log(state);
   return {
   errors: state.errors.session
-};
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
