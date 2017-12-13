@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
-        AppState, Button } from 'react-native';
+        AppState, Button, FlatList } from 'react-native';
 
 class SignupScreen extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class SignupScreen extends React.Component {
         this.state.email !== "" &&
         this.state.password !== "") {
           this.props.signup(user);
-          this.props.navigation.navigate('Profile', {user: user});
+          // this.props.navigation.navigate('Profile', {user: user});
         }
   }
 
@@ -33,13 +33,15 @@ class SignupScreen extends React.Component {
     } else {
       // console.log(this.props);
       return (
-        <Text style={styles.errors}>
-          {
-            this.props.errors.map((error) => (
-            `${error}`
-            ))
-          }
-        </Text>
+        <View>
+          <Text style={styles.errors}>
+            {
+              this.props.errors.map((error, key) => (
+                <Text key={key}>`${error}`</Text>
+              ))
+            }
+          </Text>
+        </View>
       );
     }
   }
@@ -47,6 +49,7 @@ class SignupScreen extends React.Component {
 
   render () {
     return (
+      <ScrollView>
       <View style={styles.container}>
 
       <View style={styles.header}>
@@ -120,6 +123,7 @@ class SignupScreen extends React.Component {
       </TouchableOpacity>
 
       </View>
+      </ScrollView>
     );
   }
 }
