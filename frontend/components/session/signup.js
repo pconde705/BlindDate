@@ -5,8 +5,7 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class SignupScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: "", email: "", password: ""};
-
+    this.state = {first_name: "", last_name: "", email: "", password: ""};
   }
 
   componentWillMount() {
@@ -16,8 +15,13 @@ class SignupScreen extends React.Component {
   handleSignup(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.signup(user);
-    this.props.navigation.navigate('Profile', {user: user})
+    if (this.state.first_name !== "" &&
+        this.state.last_name !== "" &&
+        this.state.email !== "" &&
+        this.state.password !== "") {
+          this.props.signup(user);
+          this.props.navigation.navigate('Profile', {user: user});
+        }
   }
 
   renderErrors() {
@@ -57,9 +61,21 @@ class SignupScreen extends React.Component {
 
       <View style={styles.inputContainer}>
         <TextInput
-          value={this.state.username}
-          placeholder='username'
-          onChangeText={username => this.setState({username})}
+          value={this.state.first_name}
+          placeholder='First Name'
+          onChangeText={first_name => this.setState({first_name})}
+          autoCapitalize='none'
+          autoCorrect={false}
+          keyboardType='default'
+          style={styles.inputField}
+         />
+      </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+          value={this.state.last_name}
+          placeholder='Last Name'
+          onChangeText={last_name => this.setState({last_name})}
           autoCapitalize='none'
           autoCorrect={false}
           keyboardType='default'

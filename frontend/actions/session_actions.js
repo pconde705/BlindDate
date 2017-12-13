@@ -44,6 +44,6 @@ export const signup = user => dispatch => (
 export const editUser = user => dispatch => (
   axios.patch(`${USERS_URL}/${user.id}`, {user}).then(response => dispatch(receiveCurrentUser(response.data)))
   .catch(error => dispatch(receiveSessionErrors(error.response.data)))
-)
+);
 
 //console.log in the catch statement to see how errors are structured
