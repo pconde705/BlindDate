@@ -6,10 +6,13 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {img_url: "", age_preference: "", introduction: "", dream_job: "",
-      cooking_preference: "", book_preference: "", movie_preference: "", pet_preference: "",
-      favorite_youtuber: "", outdoor_activity_preference: "", indoor_activity_preference: "",
-      inside_joke: "", intelligence_level: "", what_do_you_do: "", post_first_date: "" };
+    this.state = {date_of_birth: "", gender: "", sexual_orientation: "",
+      img_url: "", age_preference: "", introduction: "", dream_job: "",
+      cooking_preference: "", book_preference: "", movie_preference: "",
+      pet_preference: "", favorite_youtuber: "",
+      outdoor_activity_preference: "", indoor_activity_preference: "",
+      inside_joke: "", intelligence_level: "", what_do_you_do: "",
+      post_first_date: "" };
   }
 
   componentWillMount() {
@@ -18,8 +21,13 @@ class ProfileScreen extends React.Component {
 
   handleProfile(e) {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.editUser(user);
+    if (this.state.date_of_birth !== "" &&
+        this.state.gender !== "",
+        this.state.sexual_orientation !== "",
+        this.state.age_preference !== "") {
+      const user = Object.assign({}, this.state);
+      this.props.editUser(user);
+    }
   }
 
   render() {
@@ -29,6 +37,47 @@ class ProfileScreen extends React.Component {
           <Text style={styles.welcome}>
             EDIT PROFILE
           </Text>
+
+          <Text style={styles.requiredFields}>
+            TEXT FIELDS IN RED ARE REQUIRED
+          </Text>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={this.state.date_of_birth}
+              placeholder='When is your birthday?'
+              onChangeText={date_of_birth => this.setState({date_of_birth})}
+              style={styles.requiredInputField}
+              />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={this.state.gender}
+              placeholder='What gender do you identify as?'
+              onChangeText={gender => this.setState({gender})}
+              style={styles.requiredInputField}
+              />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={this.state.sexual_orientation}
+              placeholder='What is your sexual orientation?'
+              onChangeText={sexual_orientation => this.setState({sexual_orientation})}
+              style={styles.requiredInputField}
+              />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={this.state.age_preference}
+              placeholder='Age Preference'
+              onChangeText={age_preference => this.setState({age_preference})}
+              style={styles.requiredInputField}
+              />
+          </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.img_url}
@@ -37,14 +86,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
-          <View style={styles.inputContainer}>
-            <TextInput
-              value={this.state.age_preference}
-              placeholder='Age Preference'
-              onChangeText={age_preference => this.setState({age_preference})}
-              style={styles.inputField}
-              />
-          </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.introduction}
@@ -53,6 +95,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.dream_job}
@@ -61,6 +104,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.cooking_preference}
@@ -70,6 +114,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.book_preference}
@@ -79,6 +124,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.movie_preference}
@@ -88,6 +134,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.pet_preference}
@@ -96,6 +143,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.favorite_youtuber}
@@ -104,6 +152,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.outdoor_activity_preference}
@@ -112,6 +161,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.indoor_activity_preference}
@@ -120,6 +170,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.inside_joke}
@@ -128,6 +179,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.intelligence_level}
@@ -136,6 +188,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.what_do_you_do}
@@ -144,6 +197,7 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.post_first_date}
@@ -152,11 +206,13 @@ class ProfileScreen extends React.Component {
               style={styles.inputField}
               />
           </View>
+
           <TouchableOpacity onPress={(e) => this.handleProfile(e)}>
             <Text style={styles.save}>SAVE</Text>
           </TouchableOpacity>
 
       </View>
+
     </ScrollView>
     );
   }
@@ -187,6 +243,26 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: 'row',
+  },
+  requiredInputField: {
+    backgroundColor: '#c4c4c4',
+    borderColor: 'red',
+    borderRadius: 8,
+    borderWidth: 2,
+    color: 'black',
+    flex: 1,
+    fontFamily: 'Futura',
+    fontSize: 16,
+    height: 60,
+    marginBottom: 3,
+    marginTop: 10,
+    paddingHorizontal: 10,
+    width: 60
+  },
+  requiredFields: {
+    color: 'red',
+    fontFamily: 'Futura',
+    letterSpacing: 2
   },
   save: {
     color: '#C1B497',
