@@ -11,7 +11,7 @@ const sessionReducer = (state = _nullUser, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       currentUser = action.currentUser;
-      return Object.assign({}, { id: currentUser.id, email: currentUser.email, first_name: currentUser.first_name });
+      return Object.assign({}, { currentUser });
     default:
       return state;
   }
