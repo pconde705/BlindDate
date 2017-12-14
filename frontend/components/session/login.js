@@ -33,7 +33,7 @@ class LoginScreen extends React.Component {
     if (this.props.errors.length === 0) {
       return (
         <Text style={styles.errors}></Text>
-      )
+      );
     } else {
       // console.log(this.props);
       return (
@@ -42,13 +42,11 @@ class LoginScreen extends React.Component {
             `${error}`
           ))}
         </Text>
-      )
+      );
     }
   }
 
   render () {
-    // console.log(this.props);
-    // console.log(this.state);
     return (
       <View style={styles.container}>
 
@@ -94,7 +92,7 @@ class LoginScreen extends React.Component {
           <Text style={styles.signupButton}>SIGN UP</Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 

@@ -6,7 +6,7 @@ const mapStateToProps = state => {
 
   return {
   currentUser: state.session.currentUser,
-  users: Object.values(state.users)
+  users: Object.values(state.entities.users)
 };};
 
 const mapDispatchToProps = dispatch => ({

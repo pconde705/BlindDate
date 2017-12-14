@@ -8,26 +8,26 @@ class SwipeScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUsers()
+    this.props.getUsers();
   }
 
   handleSwipe(e) {
     e.preventDefault();
   }
-  
+
   render() {
     console.log(this.props.users);
     if (this.props.users.length === 0) {
       return (
         <Text></Text>
-      )
+      );
     } else {
       // {this.props.users.map((user) => (
       //
       // ))}
       var user = this.props.currentUser;
       while (user === this.props.currentUser) {
-        user = this.props.users[Math.floor(Math.random() * this.props.users.length)]
+        user = this.props.users[Math.floor(Math.random() * this.props.users.length)];
       }
     return (
       <View style={styles.container}>
@@ -39,79 +39,79 @@ class SwipeScreen extends React.Component {
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Introduction: `${user.introduction}`
+              Introduction: {user.introduction}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Dream Job: `${user.dream_job}`
+              Dream Job: {user.dream_job}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Cooking Preferences: `${user.cooking_preference}`
+              Cooking Preferences: {user.cooking_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Book Preferences: `${user.book_preference}`
+              Book Preferences: {user.book_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Movie Preferences: `${user.movie_preference}`
+              Movie Preferences: {user.movie_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Pet Preferences: `${user.pet_preference}`
+              Pet Preferences: {user.pet_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Youtuber: `${user.favorite_youtuber}`
+              Favorite Youtuber: {user.favorite_youtuber}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Outdoor Activities: `${user.outdoor_activity_preference}`
+              Favorite Outdoor Activities: {user.outdoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Indoor Activities: `${user.indoor_activity_preference}`
+              Favorite Indoor Activities: {user.indoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Inside Joke: `${user.inside_joke}`
+              Inside Joke: {user.inside_joke}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Am I Intelligent?: `${user.intelligence_level}`
+              Am I Intelligent?: {user.intelligence_level}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              What Do I Do?: `${user.what_do_you_do}`
+              What Do I Do?: {user.what_do_you_do}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Post First Date Activity: `${user.post_first_date}`
+              Post First Date Activity: {user.post_first_date}
             </Text>
           </View>
 
@@ -119,6 +119,12 @@ class SwipeScreen extends React.Component {
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.yesButton}>
             <Text style={styles.buttonText}>YES</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.yesButton}
+            onPress={() => this.props.navigation.navigate('Messages')}>
+            <Text style={styles.buttonText}>MATCHES</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.noButton}>

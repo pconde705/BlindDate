@@ -7,6 +7,10 @@ class Message extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.fetchMessages(this.props.currentUser.id);
+  }
+
   render() {
     return (
       <View style={styles.container}>
