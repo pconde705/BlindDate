@@ -1,4 +1,7 @@
-import {RECEIVE_ALL_USERS} from '../actions/session_actions';
+import {
+  RECEIVE_ALL_USERS,
+  RECEIVE_USER
+} from '../actions/user_actions';
 
 const usersReducer = (state = [], action) => {
   Object.freeze(state);
@@ -6,6 +9,8 @@ const usersReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_ALL_USERS:
       return action.users;
+    case RECEIVE_USER:
+      
     default:
       return state;
   }

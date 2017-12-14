@@ -7,7 +7,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-const receiveCurrentUser = (currentUser) => ({
+const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
 });
@@ -28,8 +28,8 @@ export const login = user => dispatch => (
 );
 
 export const signup = user => dispatch => (
-  axios.post(USERS_URL, {user}).then(response =>
-    dispatch(receiveCurrentUser(response.data)))
+  axios.post(USERS_URL, {user})
+    .then(response => dispatch(receiveCurrentUser(response.data)))
     .catch(error => dispatch(receiveSessionErrors(error.response.data)))
   );
 
