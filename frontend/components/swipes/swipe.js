@@ -28,100 +28,98 @@ class SwipeScreen extends React.Component {
         <Text style={styles.header}>
           BlindDate
         </Text>
-
         {this.props.users.map((user) => (
-        <ScrollView>
-          <View style={styles.readProfContainer}>
 
-          <View>
+        <ScrollView style={styles.readProfContainer}>
+
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Introduction: `${user.introduction}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Dream Job: `${user.dream_job}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Cooking Preferences: `${user.cooking_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Book Preferences: `${user.book_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Movie Preferences: `${user.movie_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Pet Preferences: `${user.pet_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Favorite Youtuber: `${user.favorite_youtuber}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Favorite Outdoor Activities: `${user.outdoor_activity_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Favorite Indoor Activities: `${user.indoor_activity_preference}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Inside Joke: `${user.inside_joke}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Am I Intelligent?: `${user.intelligence_level}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               What Do I Do?: `${user.what_do_you_do}`
             </Text>
           </View>
 
-          <View>
+          <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
               Post First Date Activity: `${user.post_first_date}`
             </Text>
           </View>
 
-        </View>
         </ScrollView>
       ))}
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity>
-            <Text style={styles.button}>YES</Text>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.yesButton}>
+            <Text style={styles.buttonText}>YES</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text style={styles.button}>NO</Text>
+          <TouchableOpacity style={styles.noButton}>
+            <Text style={styles.buttonText}>NO</Text>
           </TouchableOpacity>
         </View>
 
@@ -132,19 +130,29 @@ class SwipeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'black',
-    borderColor: '#C1B497',
-    borderRadius: 300,
-    borderWidth: 2,
+  noButton: {
+    // backgroundColor: '#B20000',
+    borderRadius: 68
+  },
+  yesButton: {
+    // backgroundColor: 'green',
+    marginRight: 50,
+    borderRadius: 68
+  },
+  buttonText: {
+    borderRadius: 68,
     color: '#C1B497',
     fontFamily: 'Futura',
     fontSize: 30,
-    paddingHorizontal: 60,
-    paddingVertical: 60
+    paddingHorizontal: 40,
+    paddingVertical: 20
   },
-  buttonContainer: {
-    flexDirection: 'row'
+  buttonsContainer: {
+    alignItems: 'center',
+    borderRadius: 68,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 20
   },
   container: {
     // alignItems: 'center',
@@ -165,17 +173,18 @@ const styles = StyleSheet.create({
   readProfContainer: {
     backgroundColor: '#c4c4c4',
     flex: 1,
-    height: 300,
-    width: 600
+    flexDirection: 'column',
+    height: 320,
+    width: 350
   },
   profHeaders: {
     fontFamily: 'Futura',
+    fontSize: 20,
     fontWeight: '600',
+    paddingLeft: 10,
+    paddingVertical: 10
   },
-  profText: {
-    fontSize: 18,
-    paddingVertical: 5,
-    width: 500
+  profTextContainer: {
   }
 });
 
