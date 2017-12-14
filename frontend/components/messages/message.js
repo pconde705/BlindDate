@@ -16,19 +16,19 @@ class Message extends React.Component {
 
           <View style={styles.matchesContainer}>
             <TouchableOpacity>
-              <Text style={styles.matches}>Maria, 26</Text>
+              <Text style={styles.matches}>Adele, 22</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
             <TouchableOpacity>
-              <Text style={styles.matches}>Tiffany, 30</Text>
+              <Text style={styles.matches}>Regina, 20</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
             <TouchableOpacity>
-              <Text style={styles.matches}>Ariana, 21</Text>
+              <Text style={styles.matches}>Joyce, 21</Text>
             </TouchableOpacity>
           </View>
 
@@ -40,13 +40,13 @@ class Message extends React.Component {
 
           <View style={styles.matchesContainer}>
             <TouchableOpacity>
-              <Text style={styles.matches}>Madalyn, 27</Text>
+              <Text style={styles.matches}>Rachel, 27</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
             <TouchableOpacity>
-              <Text style={styles.matches}>Gigi, 24</Text>
+              <Text style={styles.matches}>Keirsten, 24</Text>
             </TouchableOpacity>
           </View>
 
