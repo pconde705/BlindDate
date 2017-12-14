@@ -5,12 +5,12 @@ import {
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
-// console.log(Object.values(action.users));
+
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      return Object.assign([], action.users["users"])
+      return Object.assign([], action.users["users"]);
     case RECEIVE_USER:
-
+      return Object.assign([], action.users["user"]);
     default:
       return state;
   }

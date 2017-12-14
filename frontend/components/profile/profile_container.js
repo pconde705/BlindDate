@@ -1,5 +1,6 @@
-import {connect} from 'react-redux';
-import {editUser, clearErrors} from '../../actions/session_actions';
+import { connect } from 'react-redux';
+import { editUser } from '../../actions/user_actions';
+import { clearErrors } from '../../actions/session_actions';
 import ProfileScreen from './profile';
 
 const mapStateToProps = (state, ownProps) => {
