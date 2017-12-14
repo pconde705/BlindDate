@@ -6,16 +6,16 @@ export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-
 const receiveUsers = users => ({
   type: RECEIVE_ALL_USERS,
   users
-})
-
-export const getUsers = users => dispatch => ({
-  axios.get(USERS_URL, {users}).then(response => dispatch(receiveUsers(response.data)))
-  .catch(error => dispatch(receiveUsers(error.response.data)))
 });
+
+export const getUsers = users => dispatch => (
+  axios.get(USERS_URL, {users})
+  .then(response => dispatch(receiveUsers(response.data)))
+  .catch(error => dispatch(receiveUsers(error.response.data)))
+);
 
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,

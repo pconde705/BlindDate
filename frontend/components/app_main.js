@@ -9,8 +9,8 @@ import MessageContainer from './messages/message_container';
 console.ignoredYellowBox = ['Remote debugger'];
 
 const AppMain = StackNavigator({
-  Swipes: { screen: SwipeContainer },
   Messages: { screen: MessageContainer },
+  Swipes: { screen: SwipeContainer },
   Login: { screen: LoginContainer },
   Signup: { screen: SignupContainer },
   Profile: { screen: ProfileContainer }
