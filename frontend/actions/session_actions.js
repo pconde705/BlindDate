@@ -1,3 +1,5 @@
+// jshint esversion: 6
+
 import {SESSION_URL, USERS_URL, API_URL} from '../api/api';
 import axios from 'axios';
 
@@ -12,10 +14,13 @@ const receiveUsers = users => ({
   users
 })
 
-export const getUsers = users => dispatch => ({
-  axios.get(USERS_URL, {users}).then(response => dispatch(receiveUsers(response.data)))
+export const getUsers = () => dispatch => (
+  axios.get(USERS_URL).then(response => {
+    console.log(response);
+    dispatch(receiveUsers(response.data))
+  })
   .catch(error => dispatch(receiveUsers(error.response.data)))
-});
+);
 
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,

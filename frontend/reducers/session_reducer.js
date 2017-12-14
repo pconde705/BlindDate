@@ -1,4 +1,4 @@
-import {RECEIVE_CURRENT_USER} from '../actions/session_actions';
+import {RECEIVE_CURRENT_USER, RECEIVE_ALL_USERS} from '../actions/session_actions';
 
 const _nullUser = Object.freeze({
   currentUser: null
