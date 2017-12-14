@@ -13,8 +13,6 @@ const sessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CURRENT_USER:
       currentUser = action.currentUser;
       return Object.assign({}, { currentUser });
-    case RECEIVE_ALL_USERS:
-      return action.users;
     default:
       return state;
   }

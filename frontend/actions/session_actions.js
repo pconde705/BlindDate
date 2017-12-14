@@ -1,3 +1,5 @@
+// jshint esversion: 6
+
 import {SESSION_URL, USERS_URL, API_URL} from '../api/api';
 import axios from 'axios';
 
