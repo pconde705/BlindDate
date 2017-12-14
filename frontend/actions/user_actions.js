@@ -23,12 +23,13 @@ const receiveUserErrors = errors => ({
 export const getUser = user => dispatch => (
   axios.get(`${USERS_URL}/${user.id}`, {user})
   .then(response => dispatch(receiveUser(response.data)))
+  .catch(error => dispatch(receiveUserErrors(error.response.data)))
 );
 
 export const getUsers = users => dispatch => (
   axios.get(USERS_URL, {users})
   .then(response => dispatch(receiveUsers(response.data)))
-  .catch(error => dispatch(receiveUsers(error.response.data)))
+  .catch(error => dispatch(receiveUserErrors(error.response.data)))
 );
 
 export const editUser = user => dispatch => (

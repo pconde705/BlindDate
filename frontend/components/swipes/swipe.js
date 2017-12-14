@@ -14,7 +14,7 @@ class SwipeScreen extends React.Component {
   handleSwipe(e) {
     e.preventDefault();
   }
-
+  
   render() {
     console.log(this.props.users);
     if (this.props.users.length === 0) {
@@ -22,13 +22,18 @@ class SwipeScreen extends React.Component {
         <Text></Text>
       )
     } else {
-
+      // {this.props.users.map((user) => (
+      //
+      // ))}
+      var user = this.props.currentUser;
+      while (user === this.props.currentUser) {
+        user = this.props.users[Math.floor(Math.random() * this.props.users.length)]
+      }
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.header}>
           BlindDate
         </Text>
-        {this.props.users.map((user) => (
 
         <ScrollView style={styles.readProfContainer}>
 
@@ -111,8 +116,6 @@ class SwipeScreen extends React.Component {
           </View>
 
         </ScrollView>
-      ))}
-
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.yesButton}>
             <Text style={styles.buttonText}>YES</Text>
@@ -123,7 +126,7 @@ class SwipeScreen extends React.Component {
           </TouchableOpacity>
         </View>
 
-      </ScrollView>
+      </View>
     );
   }
   }
