@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
         AppState, Button, FlatList } from 'react-native';
 
-class Swipe extends React.Component {
+class SwipeScreen extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Swipe;
+export default SwipeScreen;
