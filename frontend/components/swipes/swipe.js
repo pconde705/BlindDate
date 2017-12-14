@@ -19,79 +19,87 @@ class Swipe extends React.Component {
         </Text>
 
         <ScrollView>
-          <View style={styles.readProf}>
-            <Text style={styles.profText}>
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
+          <View style={styles.readProfContainer}>
 
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
-              This is just a ton of text that I would like to render on the page
-              so that I know that the scroll view is rendering properly.
+          <View>
+            <Text style={styles.profHeaders}>
+              Introduction
             </Text>
           </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Dream Job
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Cooking Preferences
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Book Preferences
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Movie Preferences
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Pet Preferences
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Favorite Youtuber
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Favorite Outdoor Activities
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Favorite Indoor Activities
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Inside Joke
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Am I Intelligent?
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              What Do I Do?
+            </Text>
+          </View>
+
+          <View>
+            <Text style={styles.profHeaders}>
+              Post First Date Activity
+            </Text>
+          </View>
+
+        </View>
         </ScrollView>
 
         <View style={styles.buttonContainer}>
@@ -103,6 +111,7 @@ class Swipe extends React.Component {
             <Text style={styles.button}>NO</Text>
           </TouchableOpacity>
         </View>
+
       </View>
     );
   }
@@ -135,17 +144,23 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     color: '#C1B497',
     fontSize: 40,
-    marginBottom: 20,
+    marginBottom: 30,
     marginTop: 20,
     textAlign: 'center'
   },
-  readProf: {
+  readProfContainer: {
     backgroundColor: '#c4c4c4',
     flex: 1,
     height: 300,
     width: 600
   },
+  profHeaders: {
+    fontFamily: 'Futura',
+    fontWeight: '600',
+  },
   profText: {
+    fontSize: 18,
+    paddingVertical: 5,
     width: 500
   }
 });
