@@ -3,13 +3,14 @@ import SwipeScreen from './swipe';
 import {getUsers} from '../../actions/session_actions';
 
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  users: state.users
 };};
 
 const mapDispatchToProps = dispatch => ({
-  getUsers: users => dispatch(getUsers(users))
+  getUsers: () => dispatch(getUsers())
 });
 
 export default connect(

@@ -16,10 +16,10 @@ const receiveUsers = users => ({
 
 export const getUsers = () => dispatch => (
   axios.get(USERS_URL).then(response => {
-    console.log(response);
+    // console.log(response);
     dispatch(receiveUsers(response.data))
   })
-  .catch(error => dispatch(receiveUsers(error.response.data)))
+  .catch(error => dispatch(receiveSessionErrors(error.response.data)))
 );
 
 const receiveCurrentUser = (currentUser) => ({

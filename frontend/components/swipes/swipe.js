@@ -7,101 +7,113 @@ class SwipeScreen extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getUsers()
+  }
+
   handleSwipe(e) {
     e.preventDefault();
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.users);
+    if (this.props.users.length === 0) {
+      return (
+        <Text></Text>
+      )
+    } else {
+
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.header}>
           BlindDate
         </Text>
 
+        {this.props.users.map((user) => (
         <ScrollView>
           <View style={styles.readProfContainer}>
 
           <View>
             <Text style={styles.profHeaders}>
-              Introduction
+              Introduction: `${user.introduction}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Dream Job
+              Dream Job: `${user.dream_job}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Cooking Preferences
+              Cooking Preferences: `${user.cooking_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Book Preferences
+              Book Preferences: `${user.book_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Movie Preferences
+              Movie Preferences: `${user.movie_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Pet Preferences
+              Pet Preferences: `${user.pet_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Favorite Youtuber
+              Favorite Youtuber: `${user.favorite_youtuber}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Favorite Outdoor Activities
+              Favorite Outdoor Activities: `${user.outdoor_activity_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Favorite Indoor Activities
+              Favorite Indoor Activities: `${user.indoor_activity_preference}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Inside Joke
+              Inside Joke: `${user.inside_joke}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Am I Intelligent?
+              Am I Intelligent?: `${user.intelligence_level}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              What Do I Do?
+              What Do I Do?: `${user.what_do_you_do}`
             </Text>
           </View>
 
           <View>
             <Text style={styles.profHeaders}>
-              Post First Date Activity
+              Post First Date Activity: `${user.post_first_date}`
             </Text>
           </View>
 
         </View>
         </ScrollView>
+      ))}
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity>
@@ -113,8 +125,9 @@ class SwipeScreen extends React.Component {
           </TouchableOpacity>
         </View>
 
-      </View>
+      </ScrollView>
     );
+  }
   }
 }
 
@@ -134,10 +147,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   container: {
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: 'black',
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     padding: 20
   },
   header: {
