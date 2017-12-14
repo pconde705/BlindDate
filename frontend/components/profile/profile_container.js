@@ -2,8 +2,11 @@ import {connect} from 'react-redux';
 import {editUser, clearErrors} from '../../actions/session_actions';
 import ProfileScreen from './profile';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  // console.log(state);
+  // console.log(ownProps);
   return {
+    currentUser: state.session.currentUser
 };};
 
 const mapDispatchToProps = dispatch => ({
