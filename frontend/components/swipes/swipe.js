@@ -14,7 +14,7 @@ class SwipeScreen extends React.Component {
   handleSwipe(e) {
     e.preventDefault();
   }
-
+  
   render() {
     console.log(this.props.users);
     if (this.props.users.length === 0) {
