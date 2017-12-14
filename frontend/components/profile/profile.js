@@ -19,6 +19,17 @@ class ProfileScreen extends React.Component {
     AppState.addEventListener('change', this.props.clearErrors());
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.currentUser);
+    console.log(this.state);
+    if (nextProps.currentUser.gender !== null && nextProps.currentUser.date_of_birth !== null &&
+    nextProps.currentUser.sexual_orientation !== null && nextProps.currentUser.age_preference !== null) {
+        console.log(nextProps);
+        const user = Object.assign({}, this.state);
+        this.props.navigation.navigate('Swipes', {user: user});
+    }
+  }
+
   handleProfile(e) {
     e.preventDefault();
     if (this.state.date_of_birth !== "" &&
@@ -148,7 +159,7 @@ class ProfileScreen extends React.Component {
             <TextInput
               value={this.state.favorite_youtuber}
               placeholder='Who is your favorite Youtuber?'
-              onChangeText={favoriteYoutuber => this.setState({favoriteYoutuber})}
+              onChangeText={favorite_youtuber => this.setState({favorite_youtuber})}
               style={styles.inputField}
               />
           </View>
