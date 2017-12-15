@@ -8,6 +8,10 @@ class Message extends React.Component {
   constructor(props) {
     super(props);
   }
+  
+  static navigationOptions = {
+    title: 'BlindDate'
+  }
 
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);

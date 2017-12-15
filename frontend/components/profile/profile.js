@@ -15,6 +15,10 @@ class ProfileScreen extends React.Component {
       post_first_date: "" };
   }
 
+  static navigationOptions = {
+    title: 'BlindDate'
+  }
+
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
   }

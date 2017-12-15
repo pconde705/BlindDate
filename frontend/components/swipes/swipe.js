@@ -10,6 +10,17 @@ class SwipeScreen extends React.Component {
     };
   }
 
+  static navigationOptions = {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
+  }
+
   componentWillMount() {
     let picked = this.props.currentUser.eligibles_by_id.splice(0,1)[0];
     this.setState({userId: picked});
@@ -24,8 +35,8 @@ class SwipeScreen extends React.Component {
     let user = this.props.user;
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>
-          BlindDate
+        <Text style={styles.userName}>
+          {user.first_name}, {user.age}
         </Text>
 
         <ScrollView style={styles.readProfContainer}>
@@ -149,14 +160,16 @@ class SwipeScreen extends React.Component {
 
         </ScrollView>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={styles.yesButton}>
-            <Text style={styles.buttonText}>YES</Text>
-          </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.noButton}>
+                <Text style={styles.buttonText}>&times;</Text>
+              </View>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.noButton}>
-            <Text style={styles.buttonText}>NO</Text>
+          <TouchableOpacity>
+            <View style={styles.yesButton}>
+              <Text style={styles.buttonText}>&gt;</Text>
+            </View>
           </TouchableOpacity>
         </View>
 
@@ -167,29 +180,37 @@ class SwipeScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
-  noButton: {
-    // backgroundColor: '#B20000',
-    borderRadius: 68
-  },
   yesButton: {
-    // backgroundColor: 'green',
-    marginRight: 50,
-    borderRadius: 68
+    alignItems: 'center',
+    backgroundColor: 'green',
+    borderRadius: 100/2,
+    borderWidth: 1,
+    height: 100,
+    justifyContent: 'center',
+    width: 100
+  },
+  noButton: {
+    alignItems: 'center',
+    backgroundColor: '#DC143C',
+    borderRadius: 100/2,
+    borderWidth: 1,
+    justifyContent: 'center',
+    marginRight: 90,
+    height: 100,
+    width: 100
   },
   buttonText: {
-    borderRadius: 68,
     color: '#C1B497',
     fontFamily: 'Futura',
     fontSize: 30,
-    paddingHorizontal: 40,
-    paddingVertical: 20
   },
   buttonsContainer: {
     alignItems: 'center',
     borderRadius: 68,
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingVertical: 20
+    paddingBottom: 20,
+    paddingTop: 30
   },
   container: {
     alignItems: 'center',
@@ -198,23 +219,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20
   },
-  header: {
-    fontFamily: 'Futura',
-    fontWeight: '100',
-    color: '#C1B497',
-    fontSize: 40,
-    marginBottom: 30,
-    marginTop: 20,
-    textAlign: 'center'
-  },
   readProfContainer: {
-    backgroundColor: '#c4c4c4',
+    backgroundColor: 'black',
     flex: 1,
     flexDirection: 'column',
-    height: 320,
+    height: 600,
     width: 350
   },
   profHeaders: {
+    color: '#C0C0C0',
     fontFamily: 'Futura',
     fontSize: 16,
     fontWeight: 'bold',
@@ -222,6 +235,7 @@ const styles = StyleSheet.create({
     paddingTop: 5
   },
   profText: {
+    color: '#C0C0C0',
     fontFamily: 'Futura',
     fontSize: 16,
     paddingBottom: 5,
@@ -230,6 +244,13 @@ const styles = StyleSheet.create({
   profTextContainer: {
     borderBottomColor: 'black',
     borderBottomWidth: 1
+  },
+  userName: {
+    color: 'white',
+    fontFamily: 'Futura',
+    fontSize: 30,
+    letterSpacing: 10,
+    marginBottom: 20
   }
 });
 

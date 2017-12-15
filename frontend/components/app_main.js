@@ -11,11 +11,19 @@ console.ignoredYellowBox = ['Remote debugger'];
 
 const AppMain = StackNavigator({
   Login: { screen: LoginContainer },
+  Swipes: {
+    screen: SwipeContainer,
+  },
   Signup: { screen: SignupContainer },
-  Profile: { screen: ProfileContainer },
-  Swipes: { screen: SwipeContainer },
-  Messages: { screen: MessageContainer },
-  ChatRoom: { screen: ChatRoomContainer }
+  Profile: {
+    screen: ProfileContainer,
+   },
+  Messages: {
+    screen: MessageContainer,
+   },
+  ChatRoom: {
+    screen: ChatRoomContainer,
+   }
 });
 
 export default AppMain;
