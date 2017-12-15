@@ -13,6 +13,11 @@ class Message extends React.Component {
   }
 
   render() {
+    console.log(this.props.currentUser.matches);
+    if (this.props === undefined) {
+      return (<Text></Text>)
+    } else {
+
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Messages</Text>
@@ -70,6 +75,7 @@ class Message extends React.Component {
         </ScrollView>
       </View>
     );
+  }
   }
 }
 

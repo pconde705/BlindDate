@@ -14,7 +14,7 @@ const AppMain = StackNavigator({
   Signup: { screen: SignupContainer },
   Profile: { screen: ProfileContainer },
   Swipes: { screen: SwipeContainer },
-  Messages: { screen: MessageContainer }
+  Messages: { screen: MessageContainer },
   ChatRoom: { screen: ChatRoomContainer }
 });
 
