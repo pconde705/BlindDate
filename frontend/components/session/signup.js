@@ -8,6 +8,10 @@ class SignupScreen extends React.Component {
     this.state = {first_name: "", last_name: "", email: "", password: ""};
   }
 
+  static navigationOptions = {
+    headerStyle: { backgroundColor: 'black' }
+  }
+
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
   }

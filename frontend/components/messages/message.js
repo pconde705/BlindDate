@@ -9,6 +9,17 @@ class Message extends React.Component {
     super(props);
   }
 
+  static navigationOptions = {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
+  }
+
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
     this.props.fetchMatches(this.props.currentUser.id);
@@ -30,7 +41,9 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
-          <Text style={styles.header}>Messages</Text>
+
+          <Text style={styles.header}>Matches</Text>
+
           <ScrollView>
             <List>
               <FlatList
@@ -42,7 +55,6 @@ class Message extends React.Component {
                     />
                 )}
                 keyExtractor={item => item.id}
-                />
             </List>
 
           </ScrollView>

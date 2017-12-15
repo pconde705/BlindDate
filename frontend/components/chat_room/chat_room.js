@@ -7,7 +7,16 @@ class ChatRoom extends React.Component {
     super(props)
     this.state = { body: "", mess: [] }
   }
-
+  static navigationOptions = {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
+  }
   componentDidMount() {
     let arr = Object.values(this.props.messages);
     let empty = [];
