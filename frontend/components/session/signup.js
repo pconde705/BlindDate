@@ -19,13 +19,11 @@ class SignupScreen extends React.Component {
         this.state.last_name !== "" &&
         this.state.email !== "" &&
         this.state.password !== "") {
-          // console.log(this.props.errors);
           this.props.signup(user);
         }
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log(nextProps);
     if (this.props.loggedIn !== nextProps.loggedIn) {
       if (nextProps.loggedIn === true) {
         const user = Object.assign({}, this.state);
@@ -35,13 +33,11 @@ class SignupScreen extends React.Component {
   }
 
   renderErrors() {
-    // console.log(this.props.errors);
     if (this.props.errors.length === 0) {
       return (
         <Text style={styles.errors}></Text>
       );
     } else {
-      // console.log(this.props);
       return (
         <View>
           <Text style={styles.errors}>
