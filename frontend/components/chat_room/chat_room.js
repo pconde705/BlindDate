@@ -20,19 +20,21 @@ class ChatRoom extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
-    nextProps.fetchMessages();
+    // nextProps.fetchMessages();
   }
 
   render () {
+    console.log(this.props);
     // text={(body) => this.setState({body})}
+    // onInputTextChanged={(body) => this.setState({body})}
     return (
       <View>
         <GiftedChat
          messages={this.state.messages}
-         onInputTextChanged={(body) => this.setState({body})}
+         string={(body) => this.setState({body})}
          onSend={e => this.onSend(e)}
          user={{
-           _id: currentUser.id, name: currentUser.first_name
+           _id: this.props.currentUser.id, name: this.props.currentUser.first_name
          }}
        />
       </View>

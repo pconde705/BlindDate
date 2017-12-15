@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
         AppState, Button, FlatList } from 'react-native';
+import { List, ListItem } from "react-native-elements";
+import {Actions} from 'react-native-router-flux';
 
 class Message extends React.Component {
   constructor(props) {
@@ -13,64 +15,33 @@ class Message extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentUser.matches);
-    if (this.props === undefined) {
-      return (<Text></Text>)
-    } else {
 
+    if (this.props.matches === {}) {
+      return (
+        <Text></Text>
+      )
+    } else {
+      // <View style={styles.matchesContainer}>
+      //   <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom')}>
+      //     <Text style={styles.matches}>Adele, 22</Text>
+      //   </TouchableOpacity>
+      // </View>
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Messages</Text>
-
         <ScrollView>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Adele, 22</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Regina, 20</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Joyce, 21</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Jenna, 33</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Rachel, 27</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Keirsten, 24</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Natalia, 22</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.matchesContainer}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
-              <Text style={styles.matches}>Bianca, 23</Text>
-            </TouchableOpacity>
-          </View>
+          <List>
+            <FlatList
+              data={this.props.matches}
+              renderItem={({ item }) => (
+                <ListItem
+                  title={`${item.match_first_name}`}
+                  onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
+                  />
+              )}
+              keyExtractor={item => item.id}
+              />
+          </List>
 
         </ScrollView>
       </View>
