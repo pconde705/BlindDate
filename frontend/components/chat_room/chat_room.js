@@ -4,8 +4,12 @@ import { GiftedChat } from 'react-native-gifted-chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { body: "" }
+    super(props);
+    this.state = { body: "" };
+  }
+  
+  static navigationOptions = {
+    title: 'BlindDate'
   }
 
   onSend(e) {
@@ -36,7 +40,7 @@ class ChatRoom extends React.Component {
          }}
        />
       </View>
-    )
+    );
   }
 }
 

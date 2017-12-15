@@ -9,6 +9,10 @@ class LoginScreen extends React.Component {
     this.state = {email: "", password: ""};
   }
 
+  static navigationOptions = {
+    headerStyle: { backgroundColor: 'black' }
+  }
+
   handleLogin(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
