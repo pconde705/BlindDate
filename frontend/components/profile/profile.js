@@ -16,7 +16,14 @@ class ProfileScreen extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'BlindDate'
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
   }
 
   componentWillMount() {

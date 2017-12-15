@@ -8,9 +8,16 @@ class Message extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   static navigationOptions = {
-    title: 'BlindDate'
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
   }
 
   componentWillMount() {
