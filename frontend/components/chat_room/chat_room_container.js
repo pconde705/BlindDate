@@ -5,11 +5,11 @@ import {fetchMessages, createMessage} from '../../actions/message_actions'
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    messages: state.messages
+    messages: state.entities.messages
 };};
 
 const mapDispatchToProps = dispatch => ({
-  fetchMessages: () => dispatch(fetchMessages()),
+  fetchMessages: userId => dispatch(fetchMessages(userId)),
   createMessage: (inputMessage) => dispatch(createMessage(inputMessage))
 });
 
