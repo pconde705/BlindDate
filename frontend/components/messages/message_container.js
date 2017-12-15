@@ -3,10 +3,13 @@ import Message from './message';
 
 import { fetchMessages } from '../../actions/message_actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  // console.log(state);
+  return {
   messages: state.entities.messages,
   currentUser: state.session.currentUser
-});
+  // matches: state.session.currentUser.matches
+}};
 
 const mapDispatchToProps = dispatch => ({
   fetchMessages: (userId) => dispatch(fetchMessages(userId))
