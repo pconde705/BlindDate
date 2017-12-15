@@ -26,14 +26,13 @@ class Message extends React.Component {
   }
 
   render() {
-    // console.log(this.props.currentUser.matches);
-    if (this.props === undefined) {
-      return (<Text></Text>);
-    } else if (this.props.matches === {}) {
+    // console.log(this.props.matches);
+    if (this.props.matches === []) {
       return (
         <Text></Text>
       )
     } else {
+      // console.log(this.props.matches);
       // <View style={styles.matchesContainer}>
       //   <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom')}>
       //     <Text style={styles.matches}>Adele, 22</Text>
@@ -55,6 +54,7 @@ class Message extends React.Component {
                     />
                 )}
                 keyExtractor={item => item.id}
+                />
             </List>
 
           </ScrollView>
