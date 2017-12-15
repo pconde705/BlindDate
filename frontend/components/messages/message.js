@@ -15,49 +15,49 @@ class Message extends React.Component {
         <ScrollView>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Adele, 22</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Regina, 20</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Joyce, 21</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Jenna, 33</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Rachel, 27</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Keirsten, 24</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Natalia, 22</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.matchesContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom'), {user: user}}>
               <Text style={styles.matches}>Bianca, 23</Text>
             </TouchableOpacity>
           </View>
