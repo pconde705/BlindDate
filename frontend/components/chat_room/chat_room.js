@@ -5,7 +5,7 @@ import { GiftedChat } from 'react-native-gifted-chat';
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { body: "", messages: [] }
+    this.state = { body: "", mess: [] }
   }
 
   componentDidMount() {
@@ -22,16 +22,16 @@ class ChatRoom extends React.Component {
             name: message.sender_first_name} });
       }
     });
-    this.setState({messages: empty});
+    this.setState({mess: empty});
   }
 
 
   onSend(messages = []) {
-    const stateTemp = {body: messages[0].text}
-    const newMessage = Object.assign({}, stateTemp)
-    this.props.createMessage(newMessage);
+    this.setState({body: messages[0].text})
+    const newMessage = Object.assign({}, this.state)
+    this.props.createMessage(this.props.currentUser.id, this.props.navigation.state.params.user.match_id, newMessage);
     this.setState((previousState) => ({
-      messages: GiftedChat.append(previousState.messages, messages),
+      mess: GiftedChat.append(previousState.mess, messages),
     }));
   }
 
@@ -45,14 +45,14 @@ class ChatRoom extends React.Component {
   }
 
   render () {
-    console.log(this.state.messages);
-    console.log(this.props.messages);
-    console.log(this.props.navigation.state.params.user);
+    // console.log(this.state.messages);
+    // console.log(this.props.messages);
+    // console.log(this.props.navigation.state.params.user);
     // text={(body) => this.setState({body})}
     // onInputTextChanged={(body) => this.setState({body})}
     return (
       <GiftedChat
-        messages={this.state.messages}
+        messages={this.state.mess}
         onSend={(messages) => this.onSend(messages)}
         user={{
           _id: this.props.currentUser.id, name: this.props.currentUser.name
