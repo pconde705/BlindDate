@@ -23,7 +23,7 @@ class LoginScreen extends React.Component {
     if (this.props.loggedIn !== nextProps.loggedIn) {
       if (nextProps.loggedIn === true) {
         const user = Object.assign({}, this.state);
-        this.props.navigation.navigate('Swipes', {user: user});
+        this.props.navigation.navigate('Messages', {user: user});
       }
     }
   }

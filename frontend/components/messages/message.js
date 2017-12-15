@@ -28,9 +28,7 @@ class Message extends React.Component {
   render() {
     // console.log(this.props.currentUser.matches);
     if (this.props === undefined) {
-      return (
-        <Text></Text>
-      );
+      return (<Text></Text>);
     } else if (this.props.matches === {}) {
       return (
         <Text></Text>
@@ -43,7 +41,9 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
+
           <Text style={styles.header}>Matches</Text>
+
           <ScrollView>
             <List>
               <FlatList
@@ -55,7 +55,6 @@ class Message extends React.Component {
                     />
                 )}
                 keyExtractor={item => item.id}
-              />
             </List>
 
           </ScrollView>

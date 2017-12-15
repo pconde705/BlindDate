@@ -20,7 +20,7 @@ export const fetchMessages = userId => dispatch => (
   .then(response => dispatch(receiveMessages(response.data)))
 );
 
-export const createMessage = (inputMessage, userId) => dispatch => (
+export const createMessage = (userId, receipientId, inputMessage) => dispatch => (
   axios.post(`${USERS_URL}/${userId}/messages`, { inputMessage })
   .then(response => dispatch(receiveMessage(response.data)))
 );
