@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
 import SwipeScreen from './swipe';
-import {getUsers} from '../../actions/user_actions';
+import { getUser } from '../../actions/user_actions';
 
-const mapStateToProps = state => {
-
-  return {
+const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  users: Object.values(state.entities.users)
-};};
+  user: state.entities.users
+});
 
 const mapDispatchToProps = dispatch => ({
-  getUsers: () => dispatch(getUsers())
+  getUser: userId => dispatch(getUser(userId))
 });
 
 export default connect(

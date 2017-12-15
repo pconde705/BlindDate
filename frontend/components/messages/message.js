@@ -15,7 +15,7 @@ class Message extends React.Component {
   render() {
     console.log(this.props.currentUser.matches);
     if (this.props === undefined) {
-      return (<Text></Text>)
+      return (<Text></Text>);
     } else {
 
     return (

@@ -5,10 +5,15 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class SwipeScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userId: ''
+    };
   }
 
-  componentDidMount() {
-    this.props.getUsers();
+  componentWillMount() {
+    let picked = this.props.currentUser.eligibles_by_id.splice(0,1)[0];
+    this.setState({userId: picked});
+    this.props.getUser(picked);
   }
 
   handleSwipe(e) {
@@ -16,19 +21,7 @@ class SwipeScreen extends React.Component {
   }
 
   render() {
-    // console.log(this.props.users);
-    if (this.props.users.length === 0) {
-      return (
-        <Text></Text>
-      );
-    } else {
-      // {this.props.users.map((user) => (
-      //
-      // ))}
-      var user = this.props.currentUser;
-      while (user === this.props.currentUser) {
-        user = this.props.users[Math.floor(Math.random() * this.props.users.length)];
-      }
+    let user = this.props.user;
     return (
       <View style={styles.container}>
         <Text style={styles.header}>
@@ -117,17 +110,13 @@ class SwipeScreen extends React.Component {
 
         </ScrollView>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.yesButton}>
+          <TouchableOpacity
+            style={styles.yesButton}>
             <Text style={styles.buttonText}>YES</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.yesButton}
-            onPress={() => this.props.navigation.navigate('Messages')}>
-            <Text style={styles.buttonText}>MATCHES</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.noButton}>
+            style={styles.noButton}>
             <Text style={styles.buttonText}>NO</Text>
           </TouchableOpacity>
         </View>
@@ -135,8 +124,8 @@ class SwipeScreen extends React.Component {
       </View>
     );
   }
-  }
 }
+
 
 const styles = StyleSheet.create({
   noButton: {
