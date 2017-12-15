@@ -16,7 +16,6 @@ class SwipeScreen extends React.Component {
   }
 
   render() {
-    console.log(this.props.users);
     if (this.props.users.length === 0) {
       return (
         <Text></Text>
