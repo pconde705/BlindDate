@@ -20,11 +20,8 @@ class ProfileScreen extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.currentUser);
-    console.log(this.state);
     if (nextProps.currentUser.gender !== null && nextProps.currentUser.date_of_birth !== null &&
     nextProps.currentUser.sexual_orientation !== null && nextProps.currentUser.age_preference !== null) {
-        console.log(nextProps);
         const user = Object.assign({}, this.state);
         this.props.navigation.navigate('Swipes', {user: user});
     }

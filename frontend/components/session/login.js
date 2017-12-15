@@ -16,7 +16,6 @@ class LoginScreen extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log(nextProps);
     if (this.props.loggedIn !== nextProps.loggedIn) {
       if (nextProps.loggedIn === true) {
         const user = Object.assign({}, this.state);
@@ -35,7 +34,6 @@ class LoginScreen extends React.Component {
         <Text style={styles.errors}></Text>
       );
     } else {
-      // console.log(this.props);
       return (
         <Text style={styles.errors}>
           {this.props.errors.map((error) => (

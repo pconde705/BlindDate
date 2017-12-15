@@ -9,6 +9,7 @@ class Message extends React.Component {
 
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
+    this.props.fetchMatches(this.props.currentUser.id);
   }
 
   render() {
