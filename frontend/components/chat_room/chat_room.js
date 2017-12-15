@@ -7,9 +7,16 @@ class ChatRoom extends React.Component {
     super(props);
     this.state = { body: "" };
   }
-  
+
   static navigationOptions = {
-    title: 'BlindDate'
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
   }
 
   onSend(e) {

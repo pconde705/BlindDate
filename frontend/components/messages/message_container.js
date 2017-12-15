@@ -10,7 +10,8 @@ const mapStateToProps = state => {
   messages: state.entities.messages,
   currentUser: state.session.currentUser,
   matches: Object.values(state.entities.matches)
-}};
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchMessages: userId => dispatch(fetchMessages(userId)),
