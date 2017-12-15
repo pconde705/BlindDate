@@ -17,6 +17,7 @@ class ChatRoom extends React.Component {
       color: '#C1B497',
     }
   }
+
   componentDidMount() {
     let arr = Object.values(this.props.messages);
     let empty = [];
@@ -36,12 +37,13 @@ class ChatRoom extends React.Component {
 
 
   onSend(messages = []) {
-    this.setState({body: messages[0].text})
-    const newMessage = Object.assign({}, this.state)
-    this.props.createMessage(this.props.currentUser.id, this.props.navigation.state.params.user.match_id, newMessage);
-    this.setState((previousState) => ({
+    this.setState((previousState) => {
+      return {
       mess: GiftedChat.append(previousState.mess, messages),
-    }));
+    }});
+    console.log("Before", this.state);
+    this.props.createMessage(this.props.navigation.state.params.user.match_id, messages[0].text, this.state.mess);
+    console.log("After the createMessage action", this.state);
   }
 
   componentWillMount() {
@@ -54,8 +56,8 @@ class ChatRoom extends React.Component {
   }
 
   render () {
-    // console.log(this.state.messages);
-    // console.log(this.props.messages);
+    console.log("Inside render", this.state);
+    console.log(this.props.messages);
     // console.log(this.props.navigation.state.params.user);
     // text={(body) => this.setState({body})}
     // onInputTextChanged={(body) => this.setState({body})}

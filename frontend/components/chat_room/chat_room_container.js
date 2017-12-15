@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   fetchMessages: userId => dispatch(fetchMessages(userId)),
-  createMessage: (userId, receipientId, inputMessage) => dispatch(createMessage(userId, receipientId, inputMessage))
+  createMessage: (userId, inputMessage, mess) => dispatch(createMessage(userId, inputMessage, mess))
 });
 
 export default connect(
