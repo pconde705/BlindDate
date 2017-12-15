@@ -5,10 +5,15 @@ import { View, StyleSheet, Text, ScrollView, TextInput, TouchableOpacity,
 class SwipeScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userId: ''
+    };
   }
 
-  componentDidMount() {
-    this.props.getUsers();
+  componentWillMount() {
+    let picked = this.props.currentUser.eligibles_by_id.splice(0,1)[0];
+    this.setState({userId: picked});
+    this.props.getUser(picked);
   }
 
   handleSwipe(e) {
@@ -16,19 +21,7 @@ class SwipeScreen extends React.Component {
   }
 
   render() {
-    // console.log(this.props.users);
-    if (this.props.users.length === 0) {
-      return (
-        <Text></Text>
-      );
-    } else {
-      // {this.props.users.map((user) => (
-      //
-      // ))}
-      var user = this.props.currentUser;
-      while (user === this.props.currentUser) {
-        user = this.props.users[Math.floor(Math.random() * this.props.users.length)];
-      }
+    let user = this.props.user;
     return (
       <View style={styles.container}>
         <Text style={styles.header}>
@@ -39,95 +32,130 @@ class SwipeScreen extends React.Component {
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Introduction: {user.introduction}
+              Introduction:
+            </Text>
+            <Text style={styles.profText}>
+              {user.introduction}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Dream Job: {user.dream_job}
+              Dream Job:
+            </Text>
+            <Text style={styles.profText}>
+              {user.dream_job}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Cooking Preferences: {user.cooking_preference}
+              Cooking Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.cooking_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Book Preferences: {user.book_preference}
+              Book Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.book_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Movie Preferences: {user.movie_preference}
+              Movie Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.movie_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Pet Preferences: {user.pet_preference}
+              Pet Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.pet_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Youtuber: {user.favorite_youtuber}
+              Favorite Youtuber:
+            </Text>
+            <Text style={styles.profText}>
+              {user.favorite_youtuber}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Outdoor Activities: {user.outdoor_activity_preference}
+              Favorite Outdoor Activities:
+            </Text>
+            <Text style={styles.profText}>
+              {user.outdoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Indoor Activities: {user.indoor_activity_preference}
+              Favorite Indoor Activities:
+            </Text>
+            <Text style={styles.profText}>
+              {user.indoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Inside Joke: {user.inside_joke}
+              Inside Joke:
+            </Text>
+            <Text style={styles.profText}>
+              {user.inside_joke}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Am I Intelligent?: {user.intelligence_level}
+              Am I Intelligent?:
+            </Text>
+            <Text style={styles.profText}>
+              {user.intelligence_level}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              What Do I Do?: {user.what_do_you_do}
+              What Do I Do?:
+            </Text>
+            <Text style={styles.profText}>
+               {user.what_do_you_do}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Post First Date Activity: {user.post_first_date}
+              Post First Date Activity:
+            </Text>
+            <Text style={styles.profText}>
+              {user.post_first_date}
             </Text>
           </View>
 
         </ScrollView>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.yesButton}>
+          <TouchableOpacity
+            style={styles.yesButton}>
             <Text style={styles.buttonText}>YES</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.yesButton}
-            onPress={() => this.props.navigation.navigate('Messages')}>
-            <Text style={styles.buttonText}>MATCHES</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.noButton}>
+            style={styles.noButton}>
             <Text style={styles.buttonText}>NO</Text>
           </TouchableOpacity>
         </View>
@@ -135,8 +163,8 @@ class SwipeScreen extends React.Component {
       </View>
     );
   }
-  }
 }
+
 
 const styles = StyleSheet.create({
   noButton: {
@@ -164,10 +192,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20
   },
   container: {
-    // alignItems: 'center',
+    alignItems: 'center',
     backgroundColor: 'black',
     flex: 1,
-    // justifyContent: 'center',
+    justifyContent: 'center',
     padding: 20
   },
   header: {
@@ -188,12 +216,20 @@ const styles = StyleSheet.create({
   },
   profHeaders: {
     fontFamily: 'Futura',
-    fontSize: 20,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: 'bold',
     paddingLeft: 10,
-    paddingVertical: 10
+    paddingTop: 5
+  },
+  profText: {
+    fontFamily: 'Futura',
+    fontSize: 16,
+    paddingBottom: 5,
+    paddingLeft: 10
   },
   profTextContainer: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
   }
 });
 

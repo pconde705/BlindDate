@@ -15,6 +15,10 @@ class Message extends React.Component {
   }
 
   render() {
+    // console.log(this.props.currentUser.matches);
+    if (this.props === undefined) {
+      return (<Text></Text>);
+    } else {
 
     if (this.props.matches === {}) {
       return (

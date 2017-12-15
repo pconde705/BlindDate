@@ -5,9 +5,9 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 
-const receiveUser = user => ({
+const receiveUser = payload => ({
   type: RECEIVE_USER,
-  user
+  payload
 });
 
 const receiveUsers = users => ({
@@ -20,8 +20,8 @@ const receiveUserErrors = errors => ({
   errors
 });
 
-export const getUser = user => dispatch => (
-  axios.get(`${USERS_URL}/${user.id}`, {user})
+export const getUser = userId => dispatch => (
+  axios.get(`${USERS_URL}/${userId}`, {})
   .then(response => dispatch(receiveUser(response.data)))
   .catch(error => dispatch(receiveUserErrors(error.response.data)))
 );
