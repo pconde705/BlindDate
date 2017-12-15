@@ -18,9 +18,7 @@ class Message extends React.Component {
     // console.log(this.props.currentUser.matches);
     if (this.props === undefined) {
       return (<Text></Text>);
-    } else {
-
-    if (this.props.matches === {}) {
+    } else if (this.props.matches === {}) {
       return (
         <Text></Text>
       )
@@ -30,27 +28,27 @@ class Message extends React.Component {
       //     <Text style={styles.matches}>Adele, 22</Text>
       //   </TouchableOpacity>
       // </View>
-    return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Messages</Text>
-        <ScrollView>
-          <List>
-            <FlatList
-              data={this.props.matches}
-              renderItem={({ item }) => (
-                <ListItem
-                  title={`${item.match_first_name}`}
-                  onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
-                  />
-              )}
-              keyExtractor={item => item.id}
-              />
-          </List>
+      return (
+        <View style={styles.container}>
+          <Text style={styles.header}>Messages</Text>
+          <ScrollView>
+            <List>
+              <FlatList
+                data={this.props.matches}
+                renderItem={({ item }) => (
+                  <ListItem
+                    title={`${item.match_first_name}`}
+                    onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
+                    />
+                )}
+                keyExtractor={item => item.id}
+                />
+            </List>
 
-        </ScrollView>
-      </View>
-    );
-  }
+          </ScrollView>
+        </View>
+      );
+    }
   }
 }
 

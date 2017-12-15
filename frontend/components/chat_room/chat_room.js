@@ -1,43 +1,40 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { body: "" }
+    this.state = { body: "", messages: [] }
   }
 
-  onSend(e) {
-    e.preventDefault();
-    const message = Object.assign({}, this.state);
-    this.props.createMessage(message);
+  onSend(messages = []) {
+    this.setState((previousState) => ({
+      messages: GiftedChat.append(previousState.messages, messages),
+    }));
   }
 
-  componentWillMount() {
-    this.props.fetchMessages();
-  }
-
+  // componentWillMount() {
+  //   this.props.fetchMessages();
+  // }
+  //
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     // nextProps.fetchMessages();
   }
 
   render () {
-    console.log(this.props);
+    console.log(this.props.navigation.state.params.user);
     // text={(body) => this.setState({body})}
     // onInputTextChanged={(body) => this.setState({body})}
     return (
-      <View>
-        <GiftedChat
-         messages={this.state.messages}
-         string={(body) => this.setState({body})}
-         onSend={e => this.onSend(e)}
-         user={{
-           _id: this.props.currentUser.id, name: this.props.currentUser.first_name
-         }}
-       />
-      </View>
+      <GiftedChat
+        messages={this.state.messages}
+        onSend={(messages) => this.onSend(messages)}
+        user={{
+          _id: 1,
+        }}
+      />
     )
   }
 }
