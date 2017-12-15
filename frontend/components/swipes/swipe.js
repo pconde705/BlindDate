@@ -195,14 +195,13 @@ const styles = StyleSheet.create({
     borderRadius: 100/2,
     borderWidth: 1,
     justifyContent: 'center',
-    marginRight: 90,
+    marginRight: 80,
     height: 100,
     width: 100
   },
   buttonText: {
     color: '#C1B497',
-    fontFamily: 'Futura',
-    fontSize: 30,
+    fontSize: 35,
   },
   buttonsContainer: {
     alignItems: 'center',
