@@ -32,79 +32,118 @@ class SwipeScreen extends React.Component {
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Introduction: {user.introduction}
+              Introduction:
+            </Text>
+            <Text style={styles.profText}>
+              {user.introduction}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Dream Job: {user.dream_job}
+              Dream Job:
+            </Text>
+            <Text style={styles.profText}>
+              {user.dream_job}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Cooking Preferences: {user.cooking_preference}
+              Cooking Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.cooking_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Book Preferences: {user.book_preference}
+              Book Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.book_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Movie Preferences: {user.movie_preference}
+              Movie Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.movie_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Pet Preferences: {user.pet_preference}
+              Pet Preferences:
+            </Text>
+            <Text style={styles.profText}>
+              {user.pet_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Youtuber: {user.favorite_youtuber}
+              Favorite Youtuber:
+            </Text>
+            <Text style={styles.profText}>
+              {user.favorite_youtuber}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Outdoor Activities: {user.outdoor_activity_preference}
+              Favorite Outdoor Activities:
+            </Text>
+            <Text style={styles.profText}>
+              {user.outdoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Favorite Indoor Activities: {user.indoor_activity_preference}
+              Favorite Indoor Activities:
+            </Text>
+            <Text style={styles.profText}>
+              {user.indoor_activity_preference}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Inside Joke: {user.inside_joke}
+              Inside Joke:
+            </Text>
+            <Text style={styles.profText}>
+              {user.inside_joke}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Am I Intelligent?: {user.intelligence_level}
+              Am I Intelligent?:
+            </Text>
+            <Text style={styles.profText}>
+              {user.intelligence_level}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              What Do I Do?: {user.what_do_you_do}
+              What Do I Do?:
+            </Text>
+            <Text style={styles.profText}>
+               {user.what_do_you_do}
             </Text>
           </View>
 
           <View style={styles.profTextContainer}>
             <Text style={styles.profHeaders}>
-              Post First Date Activity: {user.post_first_date}
+              Post First Date Activity:
+            </Text>
+            <Text style={styles.profText}>
+              {user.post_first_date}
             </Text>
           </View>
 
@@ -153,10 +192,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20
   },
   container: {
-    // alignItems: 'center',
+    alignItems: 'center',
     backgroundColor: 'black',
     flex: 1,
-    // justifyContent: 'center',
+    justifyContent: 'center',
     padding: 20
   },
   header: {
@@ -177,12 +216,20 @@ const styles = StyleSheet.create({
   },
   profHeaders: {
     fontFamily: 'Futura',
-    fontSize: 20,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: 'bold',
     paddingLeft: 10,
-    paddingVertical: 10
+    paddingTop: 5
+  },
+  profText: {
+    fontFamily: 'Futura',
+    fontSize: 16,
+    paddingBottom: 5,
+    paddingLeft: 10
   },
   profTextContainer: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1
   }
 });
 
