@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const RECEIVE_REJECT = 'RECEIVE_REJECT';
 
-const receiveReject = user => ({
+const receiveReject = currentUser => ({
   type: RECEIVE_REJECT,
-  user
+  currentUser
 });
 
 export const createReject = userId => dispatch => (

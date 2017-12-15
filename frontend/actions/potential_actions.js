@@ -4,14 +4,14 @@ import axios from 'axios';
 export const RECEIVE_POTENTIAL = 'RECEIVE_POTENTIAL';
 export const REMOVE_POTENTIAL = 'REMOVE_POTENTIAL';
 
-const receivePotential = potential => ({
+const receivePotential = currentUser => ({
   type: RECEIVE_POTENTIAL,
-  potential
+  currentUser
 });
 
-const removePotential = userId => ({
+const removePotential = currentUser => ({
   type: REMOVE_POTENTIAL,
-  userId
+  currentUser
 });
 
 export const createPotential = userId => dispatch => (

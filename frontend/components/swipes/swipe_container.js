@@ -10,14 +10,16 @@ import {
 } from '../../actions/potential_actions';
 import { createReject } from '../../actions/reject_actions';
 import { createMatch } from '../../actions/match_actions';
+import { getEligibles } from '../../actions/eligible_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  user: state.entities.users
+  user: state.entities.user
 });
 
 const mapDispatchToProps = dispatch => ({
   getUser: userId => dispatch(getUser(userId)),
+  getEligibles: userId => dispatch(getEligibles(userId)),
   deleteEligible: userId => dispatch(deleteEligible(userId)),
   createPotential: userId => dispatch(createPotential(userId)),
   deletePotential: userId => dispatch(deletePotential(userId)),
