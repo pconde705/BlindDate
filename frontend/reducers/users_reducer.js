@@ -8,9 +8,9 @@ const usersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      return Object.assign([], action.users["users"]);
+      return Object.assign([], action.users);
     case RECEIVE_USER:
-      return Object.assign([], action.users["user"]);
+      return Object.assign({}, action.payload.user);
     default:
       return state;
   }
