@@ -10,9 +10,9 @@ const receiveMatches = payload => ({
   payload
 });
 
-const receiveMatch = match => ({
+const receiveMatch = payload => ({
   type: RECEIVE_MATCH,
-  match
+  payload
 });
 
 export const fetchMatches = userId => dispatch => (

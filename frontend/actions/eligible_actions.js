@@ -2,17 +2,28 @@ import { USERS_URL } from '../api/api';
 import axios from 'axios';
 
 export const RECEIVE_ELIGIBLE = 'RECEIVE_ELIGIBLE';
+export const RECEIVE_ELIGIBLES = 'RECEIVE_ELIGIBLES';
 export const REMOVE_ELIGIBLE = 'REMOVE_ELIGIBLE';
 
-const receiveEligible = user => ({
+const receiveEligible = currentUser => ({
   type: RECEIVE_ELIGIBLE,
-  user
+  currentUser
 });
 
-const removeEligible = userId => ({
-  type: REMOVE_ELIGIBLE,
-  userId
+const receiveEligibles = payload => ({
+  type: RECEIVE_ELIGIBLES,
+  payload
 });
+
+const removeEligible = currentUser => ({
+  type: REMOVE_ELIGIBLE,
+  currentUser
+});
+
+export const getEligibles = userId => dispatch => (
+  axios.get(`${USERS_URL}/${userId}/eligibles`)
+  .then(response => dispatch(receiveEligibles(response.data)))
+);
 
 export const createEligible = userId => dispatch => (
   axios.post(`${USERS_URL}/${userId}/eligibles`)
