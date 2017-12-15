@@ -5,9 +5,9 @@ export const RECEIVE_MATCHES = 'RECEIVE_MATCHES';
 export const RECEIVE_MATCH = 'RECEIVE_MATCH';
 export const START_LOADING_MATCHES = 'START_LOADING_MATCHES';
 
-const receiveMatches = matches => ({
+const receiveMatches = payload => ({
   type: RECEIVE_MATCHES,
-  matches
+  payload
 });
 
 const receiveMatch = match => ({
@@ -20,7 +20,7 @@ export const fetchMatches = userId => dispatch => (
   .then(response => dispatch(receiveMatches(response.data)))
 );
 
-export const createMatch = (inputMatch, userId) => dispatch => (
-  axios.post(`${USERS_URL}/${userId}/messages`, { inputMatch })
+export const createMatch = userId => dispatch => (
+  axios.post(`${USERS_URL}/${userId}/messages`)
   .then(response => dispatch(receiveMatch(response.data)))
 );

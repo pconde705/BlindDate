@@ -1,6 +1,15 @@
 import { connect } from 'react-redux';
 import SwipeScreen from './swipe';
 import { getUser } from '../../actions/user_actions';
+import {
+  deleteEligible
+} from '../../actions/eligible_actions';
+import {
+  createPotential,
+  deletePotential
+} from '../../actions/potential_actions';
+import { createReject } from '../../actions/reject_actions';
+import { createMatch } from '../../actions/match_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
@@ -8,7 +17,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getUser: userId => dispatch(getUser(userId))
+  getUser: userId => dispatch(getUser(userId)),
+  deleteEligible: userId => dispatch(deleteEligible(userId)),
+  createPotential: userId => dispatch(createPotential(userId)),
+  deletePotential: userId => dispatch(deletePotential(userId)),
+  createReject: userId => dispatch(createReject(userId)),
+  createMatch: userId => dispatch(createMatch(userId))
 });
 
 export default connect(

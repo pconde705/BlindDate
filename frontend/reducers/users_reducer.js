@@ -3,6 +3,25 @@ import {
   RECEIVE_USER
 } from '../actions/user_actions';
 
+import {
+  RECEIVE_ELIGIBLE,
+  REMOVE_ELIGIBLE
+} from '../actions/eligible_actions';
+
+import {
+  RECEIVE_POTENTIAL,
+  REMOVE_POTENTIAL
+} from '../actions/potential_actions';
+
+import {
+  RECEIVE_MATCHES,
+  RECEIVE_MATCH
+} from '../actions/match_actions';
+
+import {
+  RECEIVE_REJECT
+} from '../actions/reject_actions';
+
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
 

@@ -14,8 +14,8 @@ const removePotential = userId => ({
   userId
 });
 
-export const createPotential = (inputPotential, userId) => dispatch => (
-  axios.post(`${USERS_URL}/${userId}/potentials`, { inputPotential })
+export const createPotential = userId => dispatch => (
+  axios.post(`${USERS_URL}/${userId}/potentials`)
   .then(response => dispatch(receivePotential(response.data)))
 );
 
