@@ -4,9 +4,9 @@ import axios from 'axios';
 export const RECEIVE_ELIGIBLE = 'RECEIVE_ELIGIBLE';
 export const REMOVE_ELIGIBLE = 'REMOVE_ELIGIBLE';
 
-const receiveEligible = eligible => ({
+const receiveEligible = user => ({
   type: RECEIVE_ELIGIBLE,
-  eligible
+  user
 });
 
 const removeEligible = userId => ({
@@ -14,8 +14,8 @@ const removeEligible = userId => ({
   userId
 });
 
-export const createEligible = (inputEligible, userId) => dispatch => (
-  axios.post(`${USERS_URL}/${userId}/eligibles`, { inputEligible })
+export const createEligible = userId => dispatch => (
+  axios.post(`${USERS_URL}/${userId}/eligibles`)
   .then(response => dispatch(receiveEligible(response.data)))
 );
 

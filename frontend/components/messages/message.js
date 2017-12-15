@@ -43,7 +43,7 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
-          <Text style={styles.header}>Messages</Text>
+          <Text style={styles.header}>Matches</Text>
           <ScrollView>
             <List>
               <FlatList

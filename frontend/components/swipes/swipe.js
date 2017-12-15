@@ -27,8 +27,25 @@ class SwipeScreen extends React.Component {
     this.props.getUser(picked);
   }
 
-  handleSwipe(e) {
+  handleLike(e) {
     e.preventDefault();
+    if (this.props.user.rejects_by_id.include(this.props.currentUser.id)) {
+      this.props.deleteEligible(this.props.user.id);
+    } else if (this.props.user.potentials_by_id.include(this.props.currentUser.id)) {
+      this.props.createMatch(this.props.user.id);
+      this.props.deleteEligible(this.props.user.id);
+    } else {
+      this.props.createPotential(this.props.user.id);
+      this.props.deleteEligible(this.props.user.id);
+    }
+  }
+
+  handleDislike(e) {
+    e.preventDefault();
+    if (this.props.user.potentials_by_id.include(this.props.currentUser.id)) {
+      this.props.createReject(this.props.user.id);
+      this.props.deleteEligible(this.props.user.id);
+    }
   }
 
   render() {
@@ -160,13 +177,15 @@ class SwipeScreen extends React.Component {
 
         </ScrollView>
         <View style={styles.buttonsContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={()=>this.handleDislike()}>
               <View style={styles.noButton}>
                 <Text style={styles.buttonText}>&times;</Text>
               </View>
             </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={()=>this.handleLike()}>
             <View style={styles.yesButton}>
               <Text style={styles.buttonText}>&gt;</Text>
             </View>
