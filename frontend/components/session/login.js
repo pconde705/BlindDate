@@ -9,9 +9,9 @@ class LoginScreen extends React.Component {
     this.state = {email: "", password: ""};
   }
 
-  static navigationOptions = {
-    headerStyle: { backgroundColor: 'black' }
-  }
+  // static navigationOptions = {
+  //   headerStyle: { backgroundColor: 'white' }
+  // }
 
   handleLogin(e) {
     e.preventDefault();
@@ -23,7 +23,7 @@ class LoginScreen extends React.Component {
     if (this.props.loggedIn !== nextProps.loggedIn) {
       if (nextProps.loggedIn === true) {
         const user = Object.assign({}, this.state);
-        this.props.navigation.navigate('Swipes', {user: user});
+        this.props.navigation.navigate('Messages', {user: user});
       }
     }
   }
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    marginTop: -30
   },
   inputField: {
     backgroundColor: '#c4c4c4',

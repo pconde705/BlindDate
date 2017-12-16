@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ChatRoom from './chat_room';
-import {fetchMessages, createMessage} from '../../actions/message_actions'
+import {fetchMessages, createMessage} from '../../actions/message_actions';
 
 const mapStateToProps = state => {
   return {

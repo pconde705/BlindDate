@@ -10,19 +10,72 @@ import ChatRoomContainer from './chat_room/chat_room_container';
 console.ignoredYellowBox = ['Remote debugger'];
 
 const AppMain = StackNavigator({
-  Login: { screen: LoginContainer },
-  Swipes: {
-    screen: SwipeContainer,
+  Login: {
+    screen: LoginContainer,
+    navigationOptions: {
+      headerStyle: { backgroundColor: 'black' },
+      headerLeft: null
+    }
   },
-  Signup: { screen: SignupContainer },
+  Signup: {
+    screen: SignupContainer,
+    navigationOptions: {
+      headerStyle: { backgroundColor: 'black' },
+      headerLeft: null
+    }
+  },
   Profile: {
     screen: ProfileContainer,
-   },
+    navigationOptions: {
+      title: 'BlindDate',
+      headerLeft: null,
+      headerStyle: { backgroundColor: 'black' },
+      headerTitleStyle: {
+        fontFamily: 'Futura',
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#C1B497',
+      }
+    }
+  },
+  Swipes: {
+    screen: SwipeContainer,
+    navigationOptions: {
+      title: 'BlindDate',
+      headerStyle: { backgroundColor: 'black' },
+      headerTitleStyle: {
+        fontFamily: 'Futura',
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#C1B497',
+      }
+    }
+  },
   Messages: {
     screen: MessageContainer,
+    navigationOptions: {
+      title: 'BlindDate',
+      headerStyle: { backgroundColor: 'black' },
+      headerTitleStyle: {
+        fontFamily: 'Futura',
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#C1B497',
+      }
+    }
    },
   ChatRoom: {
     screen: ChatRoomContainer,
+    navigationOptions: {
+      title: 'BlindDate',
+      headerStyle: { backgroundColor: 'black' },
+      headerTitleStyle: {
+        fontFamily: 'Futura',
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#C1B497',
+      }
+    }
    }
 });
 

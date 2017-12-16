@@ -8,16 +8,16 @@ class ChatRoom extends React.Component {
     this.state = { body: "" };
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
-    headerTitleStyle: {
-      fontFamily: 'Futura',
-      fontSize: 20,
-      fontWeight: '100',
-      color: '#C1B497',
-    }
-  }
+  // static navigationOptions = {
+  //   title: 'BlindDate',
+  //   headerStyle: { backgroundColor: 'black' },
+  //   headerTitleStyle: {
+  //     fontFamily: 'Futura',
+  //     fontSize: 20,
+  //     fontWeight: '100',
+  //     color: '#C1B497',
+  //   }
+  // }
 
   onSend(e) {
     e.preventDefault();
@@ -30,12 +30,10 @@ class ChatRoom extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     // nextProps.fetchMessages();
   }
 
   render () {
-    console.log(this.props);
     // text={(body) => this.setState({body})}
     // onInputTextChanged={(body) => this.setState({body})}
     return (

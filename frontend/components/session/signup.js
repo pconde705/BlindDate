@@ -8,9 +8,9 @@ class SignupScreen extends React.Component {
     this.state = {first_name: "", last_name: "", email: "", password: ""};
   }
 
-  static navigationOptions = {
-    headerStyle: { backgroundColor: 'black' }
-  }
+  // static navigationOptions = {
+  //   headerStyle: { backgroundColor: 'black' }
+  // }
 
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
@@ -59,7 +59,6 @@ class SignupScreen extends React.Component {
 
   render () {
     return (
-      <ScrollView>
       <View style={styles.container}>
 
       <View style={styles.header}>
@@ -133,7 +132,6 @@ class SignupScreen extends React.Component {
       </TouchableOpacity>
 
       </View>
-      </ScrollView>
     );
   }
 }
@@ -162,7 +160,8 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 30
+    marginBottom: 30,
+    marginTop: -30
   },
   inputField: {
     backgroundColor: '#c4c4c4',
