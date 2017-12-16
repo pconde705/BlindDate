@@ -26,6 +26,7 @@ class Message extends React.Component {
   }
 
   render() {
+
     if (this.props === undefined) {
       return (
         <Text></Text>
@@ -35,6 +36,7 @@ class Message extends React.Component {
         <Text></Text>
       );
     } else {
+      // console.log(this.props.matches);
       // <View style={styles.matchesContainer}>
       //   <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom')}>
       //     <Text style={styles.matches}>Adele, 22</Text>
@@ -42,7 +44,9 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
+
           <Text style={styles.header}>Matches</Text>
+
           <ScrollView>
             <List style={styles.matchesContainer}>
               <FlatList
@@ -55,7 +59,7 @@ class Message extends React.Component {
                   />
                 )}
                 keyExtractor={item => item.id}
-              />
+                />
             </List>
 
           </ScrollView>
