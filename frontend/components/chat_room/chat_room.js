@@ -7,16 +7,6 @@ class ChatRoom extends React.Component {
     super(props)
     this.state = { body: "", mess: [] }
   }
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
-    headerTitleStyle: {
-      fontFamily: 'Futura',
-      fontSize: 20,
-      fontWeight: '100',
-      color: '#C1B497',
-    }
-  }
 
   componentDidMount() {
     let arr = Object.values(this.props.messages);
@@ -54,14 +44,10 @@ class ChatRoom extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     // nextProps.fetchMessages();
   }
 
   render () {
-    console.log("Inside render", this.state);
-    console.log(this.props.messages);
-    // console.log(this.props.navigation.state.params.user);
     // text={(body) => this.setState({body})}
     // onInputTextChanged={(body) => this.setState({body})}
     return (

@@ -9,16 +9,16 @@ class Message extends React.Component {
     super(props);
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
-    headerTitleStyle: {
-      fontFamily: 'Futura',
-      fontSize: 20,
-      fontWeight: '100',
-      color: '#C1B497',
-    }
-  }
+  // static navigationOptions = {
+  //   title: 'BlindDate',
+  //   headerStyle: { backgroundColor: 'black' },
+  //   headerTitleStyle: {
+  //     fontFamily: 'Futura',
+  //     fontSize: 20,
+  //     fontWeight: '100',
+  //     color: '#C1B497',
+  //   }
+  // }
 
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
@@ -26,11 +26,15 @@ class Message extends React.Component {
   }
 
   render() {
-    // console.log(this.props.matches);
-    if (this.props.matches === []) {
+
+    if (this.props === undefined) {
       return (
         <Text></Text>
-      )
+      );
+    } else if (this.props.matches === {}) {
+      return (
+        <Text></Text>
+      );
     } else {
       // console.log(this.props.matches);
       // <View style={styles.matchesContainer}>
@@ -44,14 +48,15 @@ class Message extends React.Component {
           <Text style={styles.header}>Matches</Text>
 
           <ScrollView>
-            <List>
+            <List style={styles.matchesContainer}>
               <FlatList
                 data={this.props.matches}
                 renderItem={({ item }) => (
                   <ListItem
+                    style={styles.matches}
                     title={`${item.match_first_name}`}
                     onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
-                    />
+                  />
                 )}
                 keyExtractor={item => item.id}
                 />

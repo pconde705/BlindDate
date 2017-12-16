@@ -7,24 +7,24 @@ class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {date_of_birth: "", gender: "", sexual_orientation: "",
-      img_url: "", age_preference: "", introduction: "", dream_job: "",
-      cooking_preference: "", book_preference: "", movie_preference: "",
-      pet_preference: "", favorite_youtuber: "",
+      img_url: "", age_preference_floor: "", age_preference_ceiling: "",
+      introduction: "", dream_job: "", cooking_preference: "", book_preference: "",
+      movie_preference: "", pet_preference: "", favorite_youtuber: "",
       outdoor_activity_preference: "", indoor_activity_preference: "",
       inside_joke: "", intelligence_level: "", what_do_you_do: "",
       post_first_date: "" };
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
-    headerTitleStyle: {
-      fontFamily: 'Futura',
-      fontSize: 20,
-      fontWeight: '100',
-      color: '#C1B497',
-    }
-  }
+  // static navigationOptions = {
+  //   title: 'BlindDate',
+  //   headerStyle: { backgroundColor: 'black' },
+  //   headerTitleStyle: {
+  //     fontFamily: 'Futura',
+  //     fontSize: 20,
+  //     fontWeight: '100',
+  //     color: '#C1B497',
+  //   }
+  // }
 
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
@@ -84,6 +84,15 @@ class ProfileScreen extends React.Component {
               value={this.state.sexual_orientation}
               placeholder='What is your sexual orientation?'
               onChangeText={sexual_orientation => this.setState({sexual_orientation})}
+              style={styles.requiredInputField}
+              />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={this.state.age_preference}
+              placeholder='Age Preference'
+              onChangeText={age_preference => this.setState({age_preference})}
               style={styles.requiredInputField}
               />
           </View>
