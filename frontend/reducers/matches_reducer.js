@@ -8,7 +8,7 @@ const matchesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_MATCHES:
-      let matches = action.payload.matches;
+      let matches = action.matches;
       return Object.assign({}, matches);
     case RECEIVE_MATCH:
       return;
