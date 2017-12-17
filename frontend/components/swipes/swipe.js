@@ -10,17 +10,6 @@ class SwipeScreen extends React.Component {
     };
   }
 
-  // static navigationOptions = {
-  //   title: 'BlindDate',
-  //   headerStyle: { backgroundColor: 'black' },
-  //   headerTitleStyle: {
-  //     fontFamily: 'Futura',
-  //     fontSize: 20,
-  //     fontWeight: '100',
-  //     color: '#C1B497',
-  //   }
-  // }
-
   componentWillMount() {
     let picked = this.props.currentUser.eligibles_by_id[0];
     this.setState({userId: picked});

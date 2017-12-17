@@ -9,17 +9,6 @@ class Message extends React.Component {
     super(props);
   }
 
-  // static navigationOptions = {
-  //   title: 'BlindDate',
-  //   headerStyle: { backgroundColor: 'black' },
-  //   headerTitleStyle: {
-  //     fontFamily: 'Futura',
-  //     fontSize: 20,
-  //     fontWeight: '100',
-  //     color: '#C1B497',
-  //   }
-  // }
-
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
     this.props.fetchMatches(this.props.currentUser.id);
@@ -48,15 +37,17 @@ class Message extends React.Component {
           <Text style={styles.header}>Matches</Text>
 
           <ScrollView>
-            <List style={styles.matchesContainer}>
+            <List>
               <FlatList
+                style={styles.matches}
                 data={this.props.matches}
                 renderItem={({ item }) => (
+                <View style={styles.matchItem}>
                   <ListItem
-                    style={styles.matches}
-                    title={`${item.match_first_name}`}
+                    title={item.match_first_name}
                     onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
-                  />
+                    />
+                </View>
                 )}
                 keyExtractor={item => item.id}
                 />
@@ -78,20 +69,18 @@ const styles = StyleSheet.create({
   header: {
     fontFamily: 'Futura',
     fontWeight: '100',
-    color: '#C1B497',
+    color: 'white',
     fontSize: 30,
-    marginBottom: 30,
-    marginTop: 20,
+    letterSpacing: 10,
+    marginBottom: 10,
+    marginTop: 10,
     textAlign: 'center'
   },
-  matches: {
-    color: 'white',
-    fontFamily: 'Futura',
-    fontSize: 25,
-    padding: 20,
-    textAlign: 'left'
+  matchItem: {
+    paddingVertical: 10
   },
-  matchesContainer: {
+  matches: {
+    backgroundColor: 'black',
     borderTopColor: 'gray',
     borderTopWidth: 1
   }

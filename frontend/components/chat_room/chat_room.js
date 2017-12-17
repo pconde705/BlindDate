@@ -4,8 +4,8 @@ import { GiftedChat } from 'react-native-gifted-chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { body: "", mess: [] }
+    super(props);
+    this.state = { body: "", mess: [] };
   }
 
   componentDidMount() {
@@ -33,7 +33,8 @@ class ChatRoom extends React.Component {
     this.setState((previousState) => {
       return {
       mess: GiftedChat.append(previousState.mess, messages),
-    }});
+    };
+  });
     // console.log("Before", this.state);
     this.props.createMessage(this.props.navigation.state.params.user.match_id, messages[0].text, this.state.mess);
     // console.log("After the createMessage action", this.state);
@@ -58,7 +59,7 @@ class ChatRoom extends React.Component {
           _id: this.props.currentUser.id, name: this.props.currentUser.name
         }}
       />
-    )
+  );
   }
 }
 
