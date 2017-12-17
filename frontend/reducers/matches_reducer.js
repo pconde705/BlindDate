@@ -5,7 +5,7 @@ import {
 
 const matchesReducer = (state = {}, action) => {
   Object.freeze(state);
-
+  // console.log(action);
   switch (action.type) {
     case RECEIVE_MATCHES:
       let matches = action.matches;
