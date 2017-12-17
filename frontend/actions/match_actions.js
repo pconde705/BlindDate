@@ -5,9 +5,9 @@ export const RECEIVE_MATCHES = 'RECEIVE_MATCHES';
 export const RECEIVE_MATCH = 'RECEIVE_MATCH';
 export const START_LOADING_MATCHES = 'START_LOADING_MATCHES';
 
-const receiveMatches = payload => ({
+const receiveMatches = matches => ({
   type: RECEIVE_MATCHES,
-  payload
+  matches
 });
 
 const receiveMatch = payload => ({

@@ -9,6 +9,20 @@ class Message extends React.Component {
     super(props);
   }
 
+<<<<<<< HEAD
+=======
+  static navigationOptions = {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
+  }
+
+>>>>>>> 6a64bf237251d3bb4581c1dfa8a795f7c7c91a95
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
     this.props.fetchMatches(this.props.currentUser.id);

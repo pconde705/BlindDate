@@ -53,6 +53,7 @@ const AppMain = StackNavigator({
   },
   Messages: {
     screen: MessageContainer,
+<<<<<<< HEAD
     navigationOptions: {
       title: 'BlindDate',
       headerLeft: null,
@@ -64,6 +65,18 @@ const AppMain = StackNavigator({
         color: '#C1B497',
       }
     }
+=======
+    // navigationOptions: {
+    //   title: 'BlindDate',
+    //   headerStyle: { backgroundColor: 'black' },
+    //   headerTitleStyle: {
+    //     fontFamily: 'Futura',
+    //     fontSize: 20,
+    //     fontWeight: '100',
+    //     color: '#C1B497',
+    //   }
+    // }
+>>>>>>> 6a64bf237251d3bb4581c1dfa8a795f7c7c91a95
    },
   ChatRoom: {
     screen: ChatRoomContainer,
