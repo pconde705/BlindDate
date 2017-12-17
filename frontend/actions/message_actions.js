@@ -15,12 +15,12 @@ const receiveMessage = message => ({
   message
 });
 
-export const fetchMessages = recipient_id => dispatch => (
-  axios.get(`${USERS_URL}/${recipient_id}/messages`, {})
+export const fetchMessages = userId => dispatch => (
+  axios.get(`${USERS_URL}/${userId}/messages`, {})
   .then(response => dispatch(receiveMessages(response.data)))
 );
 
-export const createMessage = (recipient_id, inputMessage, mess) => dispatch => (
-  axios.post(`${USERS_URL}/${recipient_id}/messages`, { inputMessage, mess })
+export const createMessage = (inputMessage, userId) => dispatch => (
+  axios.post(`${USERS_URL}/${userId}/messages`, { inputMessage })
   .then(response => dispatch(receiveMessage(response.data)))
 );

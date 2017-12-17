@@ -9,8 +9,6 @@ class Message extends React.Component {
     super(props);
   }
 
-<<<<<<< HEAD
-=======
   static navigationOptions = {
     title: 'BlindDate',
     headerStyle: { backgroundColor: 'black' },
@@ -22,14 +20,12 @@ class Message extends React.Component {
     }
   }
 
->>>>>>> 6a64bf237251d3bb4581c1dfa8a795f7c7c91a95
   componentWillMount() {
     this.props.fetchMessages(this.props.currentUser.id);
     this.props.fetchMatches(this.props.currentUser.id);
   }
 
   render() {
-
     if (this.props === undefined) {
       return (
         <Text></Text>
@@ -39,7 +35,6 @@ class Message extends React.Component {
         <Text></Text>
       );
     } else {
-      // console.log(this.props.matches);
       // <View style={styles.matchesContainer}>
       //   <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom')}>
       //     <Text style={styles.matches}>Adele, 22</Text>
@@ -47,24 +42,21 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
-
-          <Text style={styles.header}>Matches</Text>
-
+          <Text style={styles.header}>MATCHES</Text>
           <ScrollView>
-            <List>
-              <FlatList
-                style={styles.matches}
-                data={this.props.matches}
-                renderItem={({ item }) => (
-                <View style={styles.matchItem}>
-                  <ListItem
-                    title={item.match_first_name}
-                    onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
-                    />
-                </View>
-                )}
-                keyExtractor={item => item.id}
+            <List style={styles.matchesContainer}>
+              <View style={styles.matches}>
+                <FlatList
+                  data={this.props.matches}
+                  renderItem={({ item }) => (
+                    <ListItem
+                      title={`${item.match_first_name}`}
+                      onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
+                      />
+                  )}
+                  keyExtractor={item => item.id}
                 />
+              </View>
             </List>
 
           </ScrollView>
@@ -87,16 +79,17 @@ const styles = StyleSheet.create({
     fontSize: 30,
     letterSpacing: 10,
     marginBottom: 10,
-    marginTop: 10,
+    marginTop: 20,
     textAlign: 'center'
   },
-  matchItem: {
-    paddingVertical: 10
-  },
   matches: {
+    backgroundColor: 'black'
+  },
+  matchesContainer: {
     backgroundColor: 'black',
     borderTopColor: 'gray',
-    borderTopWidth: 1
+    borderTopWidth: 1,
+    padding: 20
   }
 });
 

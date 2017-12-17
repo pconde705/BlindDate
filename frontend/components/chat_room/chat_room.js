@@ -1,47 +1,32 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import {View, Text} from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: "", mess: [] };
+    this.state = { body: "" };
   }
 
-  componentDidMount() {
-    let arr = Object.values(this.props.messages);
-    let empty = [];
-    arr.map(message => {
-      if (this.props.navigation.state.params.user.match_first_name === message.recipient_first_name
-      && message.sender_first_name === this.props.currentUser.first_name) {
-        empty.push({_id: message.id, text: message.body, createdAt: message.created_at,
-          user: { _id: this.props.currentUser.id,
-            name: this.props.currentUser.first_name} });
-      } else if (this.props.navigation.state.params.user.match_first_name === message.sender_first_name
-      && message.recipient_first_name === this.props.currentUser.first_name) {
-        empty.push({_id: message.id, text: message.body, createdAt: message.created_at,
-          user: { _id: this.props.navigation.state.params.user.match_id,
-            name: message.sender_first_name} });
-      }
-    });
-    // console.log(empty);
-    this.setState({mess: empty.reverse()});
+  static navigationOptions = {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
   }
 
-
-  onSend(messages = []) {
-    this.setState((previousState) => {
-      return {
-      mess: GiftedChat.append(previousState.mess, messages),
-    };
-  });
-    // console.log("Before", this.state);
-    this.props.createMessage(this.props.navigation.state.params.user.match_id, messages[0].text, this.state.mess);
-    // console.log("After the createMessage action", this.state);
+  onSend(e) {
+    e.preventDefault();
+    const message = Object.assign({}, this.state);
+    this.props.createMessage(message);
   }
 
   componentWillMount() {
-    this.props.fetchMessages(this.props.currentUser.id);
+    this.props.fetchMessages();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,17 +34,18 @@ class ChatRoom extends React.Component {
   }
 
   render () {
-    // text={(body) => this.setState({body})}
-    // onInputTextChanged={(body) => this.setState({body})}
     return (
-      <GiftedChat
-        messages={this.state.mess}
-        onSend={(messages) => this.onSend(messages)}
-        user={{
-          _id: this.props.currentUser.id, name: this.props.currentUser.name
-        }}
-      />
-  );
+      <View>
+        <GiftedChat
+         messages={this.state.messages}
+         string={(body) => this.setState({body})}
+         onSend={e => this.onSend(e)}
+         user={{
+           _id: this.props.currentUser.id, name: this.props.currentUser.first_name
+         }}
+       />
+      </View>
+    );
   }
 }
 
