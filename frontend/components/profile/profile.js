@@ -15,16 +15,21 @@ class ProfileScreen extends React.Component {
       post_first_date: "" };
   }
 
-  // static navigationOptions = {
-  //   title: 'BlindDate',
-  //   headerStyle: { backgroundColor: 'black' },
-  //   headerTitleStyle: {
-  //     fontFamily: 'Futura',
-  //     fontSize: 20,
-  //     fontWeight: '100',
-  //     color: '#C1B497',
-  //   }
-  // }
+  static navigationOptions = ({navigation, state}) => {
+    // console.log(navigation);
+    return {
+    title: 'BlindDate',
+    headerStyle: { backgroundColor: 'black' },
+    headerRight: <Button title="Swipes"
+      onPress={() => navigation.navigate('Swipes')} />,
+    headerTitleStyle: {
+      fontFamily: 'Futura',
+      fontSize: 20,
+      fontWeight: '100',
+      color: '#C1B497',
+    }
+  }
+  }
 
   componentWillMount() {
     AppState.addEventListener('change', this.props.clearErrors());
@@ -96,7 +101,7 @@ class ProfileScreen extends React.Component {
               style={styles.requiredInputField}
               />
           </View>
-
+          
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.age_preference}

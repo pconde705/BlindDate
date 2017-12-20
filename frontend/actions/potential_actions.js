@@ -3,6 +3,12 @@ import axios from 'axios';
 
 export const RECEIVE_POTENTIAL = 'RECEIVE_POTENTIAL';
 export const REMOVE_POTENTIAL = 'REMOVE_POTENTIAL';
+export const RECEIVE_POTENTIAL_ERRORS = 'RECEIVE_POTENTIAL_ERRORS';
+
+const receivePotentialErrors = errors => ({
+  type: RECEIVE_POTENTIAL_ERRORS,
+  errors
+});
 
 const receivePotential = currentUser => ({
   type: RECEIVE_POTENTIAL,
@@ -22,4 +28,5 @@ export const createPotential = userId => dispatch => (
 export const deletePotential = inputUserId => dispatch => (
   axios.delete(`${USERS_URL}/${inputUserId}/potential`)
   .then(response => dispatch(removePotential(response.data)))
+  .catch(error => dispatch(receivePotentialErrors(error.response.data)))
 );

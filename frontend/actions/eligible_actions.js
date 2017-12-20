@@ -35,6 +35,7 @@ export const getEligibles = userId => dispatch => (
 export const createEligible = userId => dispatch => (
   axios.post(`${USERS_URL}/${userId}/eligibles`)
   .then(response => dispatch(receiveEligible(response.data)))
+  .catch(error => dispatch(receiveEligibleErrors(error.response.data)))
 );
 
 export const deleteEligible = inputUserId => dispatch => (

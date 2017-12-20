@@ -11,14 +11,21 @@ class SwipeScreen extends React.Component {
     console.log(this.props);
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
+  static navigationOptions = ({navigation, state}) => {
+    return {
+      title: 'BlindDate',
+      headerStyle: { backgroundColor: 'black' },
+      headerRight: <Button title="Profile"
+      onPress={() => navigation.navigate('Profile')} />,
+    headerLeft: <Button title="Messages"
+      onPress={() => navigation.navigate('Messages')} />,
     headerTitleStyle: {
       fontFamily: 'Futura',
       fontSize: 20,
       fontWeight: '100',
       color: '#C1B497',
+    }
+
     }
   }
 
