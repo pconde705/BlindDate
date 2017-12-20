@@ -26,15 +26,13 @@ class Message extends React.Component {
   }
 
   render() {
-    if (this.props === undefined) {
+    // console.log(this.props.matches);
+    if (this.props.matches === []) {
       return (
         <Text></Text>
-      );
-    } else if (this.props.matches === {}) {
-      return (
-        <Text></Text>
-      );
+      )
     } else {
+      // console.log(this.props.matches);
       // <View style={styles.matchesContainer}>
       //   <TouchableOpacity onPress={() => this.props.navigation.navigate('ChatRoom')}>
       //     <Text style={styles.matches}>Adele, 22</Text>
@@ -42,21 +40,21 @@ class Message extends React.Component {
       // </View>
       return (
         <View style={styles.container}>
-          <Text style={styles.header}>MATCHES</Text>
+
+          <Text style={styles.header}>Matches</Text>
+
           <ScrollView>
-            <List style={styles.matchesContainer}>
-              <View style={styles.matches}>
-                <FlatList
-                  data={this.props.matches}
-                  renderItem={({ item }) => (
-                    <ListItem
-                      title={`${item.match_first_name}`}
-                      onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
-                      />
-                  )}
-                  keyExtractor={item => item.id}
+            <List>
+              <FlatList
+                data={this.props.matches}
+                renderItem={({ item }) => (
+                  <ListItem
+                    title={`${item.match_first_name}`}
+                    onPress={() => this.props.navigation.navigate('ChatRoom', {user: item})}
+                    />
+                )}
+                keyExtractor={item => item.id}
                 />
-              </View>
             </List>
 
           </ScrollView>
@@ -75,21 +73,22 @@ const styles = StyleSheet.create({
   header: {
     fontFamily: 'Futura',
     fontWeight: '100',
-    color: 'white',
+    color: '#C1B497',
     fontSize: 30,
-    letterSpacing: 10,
-    marginBottom: 10,
+    marginBottom: 30,
     marginTop: 20,
     textAlign: 'center'
   },
   matches: {
-    backgroundColor: 'black'
+    color: 'white',
+    fontFamily: 'Futura',
+    fontSize: 25,
+    padding: 20,
+    textAlign: 'left'
   },
   matchesContainer: {
-    backgroundColor: 'black',
     borderTopColor: 'gray',
-    borderTopWidth: 1,
-    padding: 20
+    borderTopWidth: 1
   }
 });
 
