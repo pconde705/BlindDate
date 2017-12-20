@@ -11,7 +11,7 @@ const matchesReducer = (state = {}, action) => {
       let matches = action.matches;
       return Object.assign({}, matches);
     case RECEIVE_MATCH:
-      return;
+      return Object.assign({}, state, {[action.payload.match.id]: action.payload.match});
     default:
       return state;
   }
