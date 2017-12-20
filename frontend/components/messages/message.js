@@ -9,14 +9,20 @@ class Message extends React.Component {
     super(props);
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
+  static navigationOptions = ({navigation, state}) => {
+    // console.log(navigation);
+    return {
+      title: 'BlindDate',
+      headerStyle: { backgroundColor: 'black' },
+      headerRight: <Button title="Swipes"
+      onPress={() => navigation.navigate('Swipes')} />,
     headerTitleStyle: {
       fontFamily: 'Futura',
       fontSize: 20,
       fontWeight: '100',
       color: '#C1B497',
+    }
+
     }
   }
 
