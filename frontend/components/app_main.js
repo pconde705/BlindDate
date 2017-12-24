@@ -38,6 +38,12 @@ const AppMain = StackNavigator({
       }
     }
   },
+  Messages: {
+    screen: MessageContainer
+   },
+  ChatRoom: {
+    screen: ChatRoomContainer
+  },
   Swipes: {
     screen: SwipeContainer,
     navigationOptions: {
@@ -50,13 +56,7 @@ const AppMain = StackNavigator({
         color: '#C1B497',
       }
     }
-  },
-  Messages: {
-    screen: MessageContainer
-   },
-  ChatRoom: {
-    screen: ChatRoomContainer
-   }
+  }
 });
 
 export default AppMain;

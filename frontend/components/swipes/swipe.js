@@ -30,10 +30,13 @@ class SwipeScreen extends React.Component {
   }
 
   componentWillMount() {
-    let picked = this.props.currentUser.eligibles_by_id[0];
-    this.setState({userId: picked});
-    this.props.getEligibles(this.props.currentUser.id);
-    this.props.getUser(picked);
+    if (this.props.currentUser.eligibles_by_id !== undefined) {
+
+      let picked = this.props.currentUser.eligibles_by_id[0];
+      this.setState({userId: picked});
+      this.props.getEligibles(this.props.currentUser.id);
+      this.props.getUser(picked);
+    }
   }
 
   handleLike() {

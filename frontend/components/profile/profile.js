@@ -7,7 +7,7 @@ class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {date_of_birth: "", gender: "", sexual_orientation: "",
-      img_url: "", age_preference_floor: "", age_preference_ceiling: "",
+      img_url: "", age_preference_floor: "", age_preference_ceiling: "", age_preference: "",
       introduction: "", dream_job: "", cooking_preference: "", book_preference: "",
       movie_preference: "", pet_preference: "", favorite_youtuber: "",
       outdoor_activity_preference: "", indoor_activity_preference: "",
@@ -36,6 +36,7 @@ class ProfileScreen extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if (nextProps.currentUser.gender !== null && nextProps.currentUser.date_of_birth !== null &&
     nextProps.currentUser.sexual_orientation !== null && nextProps.currentUser.age_preference !== null) {
         const user = Object.assign({}, this.state);
@@ -44,6 +45,7 @@ class ProfileScreen extends React.Component {
   }
 
   handleProfile(e) {
+    console.log(this.state);
     e.preventDefault();
     if (this.state.date_of_birth !== "" &&
         this.state.gender !== "",
@@ -51,6 +53,7 @@ class ProfileScreen extends React.Component {
         this.state.age_preference !== "") {
       const user = Object.assign({}, this.state);
       this.props.editUser(user);
+      this.props.navigation.navigate('Swipes', {user: user});
     }
   }
 
@@ -93,15 +96,6 @@ class ProfileScreen extends React.Component {
               />
           </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              value={this.state.age_preference}
-              placeholder='Age Preference'
-              onChangeText={age_preference => this.setState({age_preference})}
-              style={styles.requiredInputField}
-              />
-          </View>
-          
           <View style={styles.inputContainer}>
             <TextInput
               value={this.state.age_preference}

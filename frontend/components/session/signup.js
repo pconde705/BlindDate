@@ -22,7 +22,7 @@ class SignupScreen extends React.Component {
     if (this.state.first_name !== "" &&
         this.state.last_name !== "" &&
         this.state.email !== "" &&
-        this.state.password !== "") {
+        this.state.password.length !== "") {
           this.props.signup(user);
         }
   }
@@ -110,7 +110,7 @@ class SignupScreen extends React.Component {
        <View style={styles.inputContainer}>
         <TextInput
           value={this.state.password}
-          placeholder="password"
+          placeholder="password (at least 6 characters)"
           onChangeText={ password => this.setState({password})}
           autoCapitalize='none'
           autoCorrect={false}
