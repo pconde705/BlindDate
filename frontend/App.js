@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-  Platfor,
+  Platform,
   StyleSheet,
   Text,
   View
