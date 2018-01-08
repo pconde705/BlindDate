@@ -13,6 +13,12 @@ class LoginScreen extends React.Component {
     headerStyle: { backgroundColor: 'black' }
   }
 
+  handleDemoLogin(e) {
+    e.preventDefault();
+    const demo = { email: "veronica@bauch.info", password: "password" };
+    this.props.login(demo);
+  }
+
   handleLogin(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -83,9 +89,15 @@ class LoginScreen extends React.Component {
             style={styles.inputField}
           />
         </View>
-        <TouchableOpacity onPress={(e) => this.handleLogin(e)}>
-          <Text style={styles.login}>LOG IN</Text>
-        </TouchableOpacity>
+        <View style={styles.loginButtons}>
+          <TouchableOpacity onPress={(e) => this.handleLogin(e)}>
+            <Text style={styles.login}>LOGIN</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={(e) => this.handleDemoLogin(e)}>
+            <Text style={styles.demoLogin}>DEMO LOGIN</Text>
+          </TouchableOpacity>
+        </View>
+
         {this.renderErrors()}
         <Text style={styles.signupPrompt}>
           Don't have an account?
@@ -112,6 +124,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20
+  },
+  demoLogin: {
+    color: 'white',
+    fontFamily: 'Futura',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    marginLeft: 30,
+    marginTop: 20,
+    textAlign: 'center'
   },
   errors: {
     alignItems: 'center',
@@ -150,6 +172,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 20,
     textAlign: 'center'
+  },
+  loginButtons: {
+    flexDirection: 'row'
   },
   signupButton: {
     color: 'red',
