@@ -15,7 +15,7 @@ class LoginScreen extends React.Component {
 
   handleDemoLogin(e) {
     e.preventDefault();
-    const demo = { email: "veronica@bauch.info", password: "password" };
+    const demo = { email: "a", password: "password" };
     this.props.login(demo);
   }
 
