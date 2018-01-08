@@ -9,14 +9,18 @@ class Message extends React.Component {
     super(props);
   }
 
-  static navigationOptions = {
-    title: 'BlindDate',
-    headerStyle: { backgroundColor: 'black' },
-    headerTitleStyle: {
-      fontFamily: 'Futura',
-      fontSize: 20,
-      fontWeight: '100',
-      color: '#C1B497',
+  static navigationOptions = ({navigation, state}) => {
+    return {
+      title: 'BlindDate',
+      headerLeft: <Button title="Swipes"
+      onPress={() => navigation.navigate('Swipes')} />,
+      headerStyle: { backgroundColor: 'black' },
+      headerTitleStyle: {
+        fontFamily: 'Futura',
+        fontSize: 20,
+        fontWeight: '100',
+        color: '#C1B497',
+      }
     }
   }
 
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     color: '#C1B497',
     fontSize: 30,
-    marginBottom: 30,
+    marginBottom: 20,
     marginTop: 20,
     textAlign: 'center'
   },
