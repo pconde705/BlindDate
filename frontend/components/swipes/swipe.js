@@ -28,10 +28,12 @@ class SwipeScreen extends React.Component {
   }
 
   componentWillMount() {
-    let picked = this.props.currentUser.eligibles_by_id[0];
-    this.setState({userId: picked});
-    this.props.getEligibles(this.props.currentUser.id);
-    this.props.getUser(picked);
+    if (this.props.currentUser.eligibles_by_id !== undefined) {
+      let picked = this.props.currentUser.eligibles_by_id[0];
+      this.setState({userId: picked});
+      this.props.getEligibles(this.props.currentUser.id);
+      this.props.getUser(picked);
+    }
   }
 
   handleLike() {
@@ -56,10 +58,10 @@ class SwipeScreen extends React.Component {
 
   render() {
     let user = this.props.user;
-    if (this.state.userId === '') {
+    if (this.props.currentUser.potentials_by_id === undefined) {
       return (
         <View style={styles.container}>
-          <Text>
+          <Text style={styles.moreSwipes}>
             Refine your search queries to get more swipes.
           </Text>
         </View>
@@ -252,6 +254,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20
+  },
+  moreSwipes: {
+    color: 'white'
   },
   readProfContainer: {
     backgroundColor: 'black',

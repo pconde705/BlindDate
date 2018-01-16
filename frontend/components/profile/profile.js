@@ -46,6 +46,7 @@ class ProfileScreen extends React.Component {
         this.state.age_preference !== "") {
       const user = Object.assign({}, this.state);
       this.props.editUser(user);
+      this.props.navigation.navigate('Swipes', {user: user});
     }
   }
 
@@ -63,7 +64,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.date_of_birth}
+              value={this.props.currentUser.date_of_birth}
               placeholder='When is your birthday? e.g. 1930-03-24'
               onChangeText={date_of_birth => this.setState({date_of_birth})}
               style={styles.requiredInputField}
@@ -72,7 +73,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.gender}
+              value={this.props.currentUser.gender}
               placeholder='What gender do you identify as?'
               onChangeText={gender => this.setState({gender})}
               style={styles.requiredInputField}
@@ -81,7 +82,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.sexual_orientation}
+              value={this.props.currentUser.sexual_orientation}
               placeholder='What is your sexual orientation?'
               onChangeText={sexual_orientation => this.setState({sexual_orientation})}
               style={styles.requiredInputField}
@@ -90,7 +91,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.age_preference}
+              value={this.props.currentUser.age_preference}
               placeholder='Age Preference'
               onChangeText={age_preference => this.setState({age_preference})}
               style={styles.requiredInputField}
@@ -99,16 +100,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.img_url}
-              placeholder='Upload an image of yourself...'
-              onChangeText={img_url => this.setState({img_url})}
-              style={styles.inputField}
-              />
-          </View>
-
-          <View style={styles.inputContainer}>
-            <TextInput
-              value={this.state.introduction}
+              value={this.props.currentUser.introduction}
               placeholder='Tell us a bit about yourself...'
               onChangeText={introduction => this.setState({introduction})}
               style={styles.inputField}
@@ -117,7 +109,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.dream_job}
+              value={this.props.currentUser.dream_job}
               placeholder='What is your dream job?'
               onChangeText={dream_job => this.setState({dream_job})}
               style={styles.inputField}
@@ -126,7 +118,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.cooking_preference}
+              value={this.props.currentUser.cooking_preference}
               placeholder='Do you like to cook?'
               onChangeText={cooking_preference =>
                 this.setState({cooking_preference})}
@@ -136,7 +128,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.book_preference}
+              value={this.props.currentUser.book_preference}
               placeholder='What are your favorite books?'
               onChangeText={book_preference =>
                 this.setState({book_preference})}
@@ -146,7 +138,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.movie_preference}
+              value={this.props.currentUser.movie_preference}
               placeholder='What are your favorite movies?'
               onChangeText={movie_preference =>
                 this.setState({movie_preference})}
@@ -156,7 +148,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.pet_preference}
+              value={this.props.currentUser.pet_preference}
               placeholder='Tell us about your pets.'
               onChangeText={pet_preference => this.setState({pet_preference})}
               style={styles.inputField}
@@ -165,7 +157,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.favorite_youtuber}
+              value={this.props.currentUser.favorite_youtuber}
               placeholder='Who is your favorite Youtuber?'
               onChangeText={favorite_youtuber => this.setState({favorite_youtuber})}
               style={styles.inputField}
@@ -174,7 +166,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.outdoor_activity_preference}
+              value={this.props.currentUser.outdoor_activity_preference}
               placeholder='Favorite outdoor activities?'
               onChangeText={outdoor_activity_preference => this.setState({outdoor_activity_preference})}
               style={styles.inputField}
@@ -183,7 +175,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.indoor_activity_preference}
+              value={this.props.currentUser.indoor_activity_preference}
               placeholder='Favorite indoor activities?'
               onChangeText={indoor_activity_preference => this.setState({indoor_activity_preference})}
               style={styles.inputField}
@@ -192,7 +184,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.inside_joke}
+              value={this.props.currentUser.inside_joke}
               placeholder='Tell us an inside joke...'
               onChangeText={inside_joke => this.setState({inside_joke})}
               style={styles.inputField}
@@ -201,7 +193,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.intelligence_level}
+              value={this.props.currentUser.intelligence_level}
               placeholder='Are you intelligent?'
               onChangeText={intelligence_level => this.setState({intelligence_level})}
               style={styles.inputField}
@@ -210,7 +202,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.what_do_you_do}
+              value={this.props.currentUser.what_do_you_do}
               placeholder='What do you do?'
               onChangeText={what_do_you_do => this.setState({what_do_you_do})}
               style={styles.inputField}
@@ -219,7 +211,7 @@ class ProfileScreen extends React.Component {
 
           <View style={styles.inputContainer}>
             <TextInput
-              value={this.state.post_first_date}
+              value={this.props.currentUser.post_first_date}
               placeholder='We just had a great first date... now what?'
               onChangeText={post_first_date => this.setState({post_first_date})}
               style={styles.inputField}
