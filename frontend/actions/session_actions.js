@@ -24,7 +24,10 @@ export const clearErrors = () => ({
 export const login = user => dispatch => (
   axios.post(SESSION_URL, {user})
   .then(response => dispatch(receiveCurrentUser(response.data)))
-  .catch(error => dispatch(receiveSessionErrors(error.response.data)))
+  .catch(error => {
+    console.log(error.response);
+    dispatch(receiveSessionErrors(error.response.data));
+  })
 );
 
 export const signup = user => dispatch => (
