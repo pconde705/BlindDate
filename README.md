@@ -6,7 +6,7 @@
 <a href="https://andrewopes789.github.io/blinddate-website/">
     <img alt="BlindDate" title="BlindDate" src="https://media.giphy.com/media/3o6nUQfhZCYSKGqxc4/giphy.gif" >
 </a>
-</p>
+</p> 
 
 ## Table of Contents
 
